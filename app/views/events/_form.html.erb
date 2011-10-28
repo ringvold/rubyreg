@@ -1,0 +1,13 @@
+<%= semantic_form_for @event do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :title %>
+    <%= f.input :start_date, :as => :string %>
+    <%= f.input :end_date, :as => :string %>
+    <%= f.input :max_att %>
+    <%= f.input :description, :as => :text %>
+  <% end %>
+  <%= f.buttons do %>
+    <%= f.commit_button %>
+  <% end %>
+<% end %>
+

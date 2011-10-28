@@ -1,0 +1,5 @@
+class AddFieldTypeIdToField < ActiveRecord::Migration
+  def change
+    add_column :fields, :field_type__id, :integer
+  end
+end

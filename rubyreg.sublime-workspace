@@ -1,0 +1,504 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "spec/models/event_spec.rb",
+			"settings":
+			{
+				"buffer_size": 591,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "spec/models/field_spec.rb",
+			"settings":
+			{
+				"buffer_size": 171,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "require 'spec_helper'\n\ndescribe 'EditEvents' do\n\n  before(:each) do\n    @event = Event.create({:title => \"test\", :start_date => \"12.12.2011\", :end_date => \"12.12.2012\", :max_att => 30})\n  end\n\n	it \"saves changes to event\" do\n		if ( current_path != (edit_event_path(@event)) )\n			visit edit_event_path(@event)\n		end\n		fill_in \"Title\", :with => \"Another test\"\n    fill_in \"Start date\", :with => \"01.01.2011\"\n    fill_in \"End date\", :with => \"02.02.2011\"\n    fill_in \"Max att\", :with => \"10\"\n    click_button \"Update Event\"\n    current_path.should eq(edit_event_path(@event.id))\n	end\n\n  it \"adds a new Field\"\n     \n  end\nend",
+			"file": "spec/requests/edit_events_spec.rb",
+			"file_size": 584,
+			"file_write_time": 1319675012000000,
+			"settings":
+			{
+				"buffer_size": 621,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "spec/requests/add_events_spec.rb",
+			"settings":
+			{
+				"buffer_size": 358,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/field_reply.rb",
+			"settings":
+			{
+				"buffer_size": 84,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/field.rb",
+			"settings":
+			{
+				"buffer_size": 154,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/field_type.rb",
+			"settings":
+			{
+				"buffer_size": 93,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/events_controller.rb",
+			"settings":
+			{
+				"buffer_size": 1896,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/events/_form.html.erb",
+			"settings":
+			{
+				"buffer_size": 336,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 50.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"p",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 360.0
+	},
+	"console":
+	{
+		"height": 129.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/harald/dev/ruby/rubyreg/rubyreg.sublime-project",
+		"/home/harald/dev/php/mjfreg/application/controllers/FormController.php",
+		"/home/harald/dev/ruby/rubyreg/app/models/event.rb",
+		"/home/harald/dev/ruby/rubyreg/app/views/events/_form.html.erb",
+		"/home/harald/dev/ruby/rubyreg/app/views/events/edit.html.erb",
+		"/home/harald/dev/ruby/rubyreg/spec/requests/add_event_spec.rb",
+		"/home/harald/dev/ruby/rubyreg/spec/models/field_type_spec.rb",
+		"/home/harald/dev/ruby/rubyreg/spec/requests/edit_eventsspec.rb",
+		"/home/harald/dev/ruby/rubyreg/spec/requests/add_events_spec.rb",
+		"/home/harald/.config/sublime-text-2/Packages/Default/Global.sublime-settings",
+		"/home/harald/.config/sublime-text-2/Packages/Default/Base File.sublime-settings",
+		"/home/harald/dev/ruby/rubyreg/Gemfile",
+		"/home/harald/dev/ruby/rubyreg/app/models/.gitkeep",
+		"/home/harald/dev/ruby/rubyreg/rubyreg.sublime-workspace",
+		"/home/harald/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/harald/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/harald/.config/sublime-text-2/Packages/User/Base File.sublime-settings",
+		"/home/harald/Dropbox/Jobb/Ringvold Solutions/annejordaen.no/sangpageids.txt",
+		"/home/harald/Dropbox/Jobb/Ringvold Solutions/annejordaen.no/timer.txt",
+		"/home/harald/dev/ruby/rubyreg/db/schema.rb",
+		"/home/harald/dev/ruby/rubyreg/public/index.html",
+		"/home/harald/dev/ruby/rubyreg/spec/models/field_type_spec.rb~",
+		"/home/harald/dev/ruby/rubyreg/spec/models/field_spec.rb~"
+	],
+	"find":
+	{
+		"height": 33.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"include_history":
+		[
+		],
+		"location_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"number",
+			"\"",
+			"event",
+			"Event",
+			"event",
+			"Event",
+			"can"
+		],
+		"highlight": true,
+		"in_selection": true,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "spec/models/event_spec.rb",
+					"settings":
+					{
+						"buffer_size": 591,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								220,
+								310
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2.0,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "spec/models/field_spec.rb",
+					"settings":
+					{
+						"buffer_size": 171,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								171,
+								171
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "spec/requests/edit_events_spec.rb",
+					"settings":
+					{
+						"buffer_size": 621,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								610,
+								610
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2.0,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "spec/requests/add_events_spec.rb",
+					"settings":
+					{
+						"buffer_size": 358,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								352,
+								352
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "app/models/field_reply.rb",
+					"settings":
+					{
+						"buffer_size": 84,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								38,
+								38
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/models/field.rb",
+					"settings":
+					{
+						"buffer_size": 154,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/models/field_type.rb",
+					"settings":
+					{
+						"buffer_size": 93,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								88,
+								88
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/controllers/events_controller.rb",
+					"settings":
+					{
+						"buffer_size": 1896,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1448,
+								1448
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2.0,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 528.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/views/events/_form.html.erb",
+					"settings":
+					{
+						"buffer_size": 336,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								335,
+								335
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2.0,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 29.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 203.0,
+	"status_bar_visible": true
+}

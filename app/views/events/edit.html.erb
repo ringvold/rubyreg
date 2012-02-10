@@ -1,3 +1,30 @@
 <h1>Lag ny påmelding</h1>
 <%= render 'form' %>
 
+
+
+<div class="addFields">
+	<h2>Felt</h2>
+
+	<div title="Nytt felt" class="addTop button addElement ui-state-default ui-corner-all">
+		<span class="ui-icon ui-icon-plusthick">Nytt felt</span>
+	</div>
+
+	<div class="clear"></div>
+
+	<ul id="fields" >
+
+	</ul>
+
+	<div title="Nytt felt" class="addBottom button addElement ui-state-default ui-corner-all">
+		<span class="ui-icon ui-icon-plusthick">Nytt felt</span>
+	</div>
+</div>
+
+
+
+
+
+  <% #foreach($thisForm->getPopulatedFields($thisForm->id)as $field): %>
+    <% #newField($thisForm->id, true, $field); %>
+    <% #end %> 

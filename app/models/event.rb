@@ -6,11 +6,12 @@ class Event < ActiveRecord::Base
   has_many :field_replies, :through => :replies
   has_many :fields
 
-  scope :active, lambda { where("events.active = ? ") }
+  scope :active, 	where(:active => true)
+  scope :active_and_active_by_date, active.where("start_date < ?", Date.today).where("end_date > ?", Date.new)
 
+  
 #  def to_slug
 #    title.downcase.gsub(' ', '-')
 #  end
 
 end
-

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110507025444) do
+ActiveRecord::Schema.define(:version => 20111030132356) do
 
   create_table "event_types", :force => true do |t|
     t.string   "name",       :null => false
@@ -64,13 +64,21 @@ ActiveRecord::Schema.define(:version => 20110507025444) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "first_name",                      :null => false
-    t.string   "last_name",                       :null => false
-    t.string   "email",                           :null => false
-    t.string   "password",                        :null => false
-    t.string   "role",       :default => "admin"
+    t.string   "username",                                             :null => false
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "salt"
+    t.string   "role",                            :default => "admin"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_token_expires_at"
+    t.datetime "reset_password_email_sent_at"
   end
+
+  add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"
 
 end

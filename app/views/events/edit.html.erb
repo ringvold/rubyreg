@@ -1,28 +1,26 @@
-<h1>Lag ny påmelding</h1>
+<h1>Rediger påmelding</h1>
 <%= render 'form' %>
-
-
 
 <div class="addFields">
 	<h2>Felt</h2>
 
-	<div title="Nytt felt" class="addTop button addElement ui-state-default ui-corner-all">
-		<span class="ui-icon ui-icon-plusthick">Nytt felt</span>
-	</div>
-
-	<div class="clear"></div>
+	<%= render "add_element" %>
 
 	<ul id="fields" >
+		<% if @event.fields == nil  %>
 
+			<p class="well" >Det er ikke laget noen felt enda.</p>
+
+		<% else %>
+
+			<% @event.fields.each do |field| %>
+				<li><%= field.field_label %></li>	
+			<% end %>
+
+		<% end %>
 	</ul>
 
-	<div title="Nytt felt" class="addBottom button addElement ui-state-default ui-corner-all">
-		<span class="ui-icon ui-icon-plusthick">Nytt felt</span>
-	</div>
-</div>
-
-
-
+	<%= render "add_element" %>
 
 
   <% #foreach($thisForm->getPopulatedFields($thisForm->id)as $field): %>

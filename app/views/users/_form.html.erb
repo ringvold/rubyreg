@@ -1,11 +1,11 @@
- <%= semantic_form_for @user do |f| %>
-    <%= f.inputs do %>
-	    <%= f.input :name %>
-	    <%= f.input :username %>
-	    <%= f.input :email %>
-	    <%= f.input :password %>
-	    <%= f.input :password_confirmation, :required => true %>
-    <% end %>
-    <%= f.buttons %>
+ <%= simple_form_for @user, 
+	:html => { :class => 'form-horizontal' } do |f| %>
+		<%= f.error_notification %>
+    <%= f.input :name %>
+    <%= f.input :username %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation, :required => true %>
+  	<%= f.button :submit %>
   <% end %>
 

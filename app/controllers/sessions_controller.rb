@@ -1,3 +1,4 @@
+# encoding: utf-8
 class SessionsController < ApplicationController
 
   def new
@@ -6,7 +7,7 @@ class SessionsController < ApplicationController
   def create
     user = login(params[:username], params[:password], params[:remember_me])
     if user
-      redirect_back_or_to dashboard_url, :notice => "Logged in!"
+      redirect_back_or_to dashboard_url, :notice => "Innlogget!"
     else
       flash.now.alert = "Feil brukernavn eller passord"
       render :new
@@ -15,7 +16,7 @@ class SessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to login_url, :notice => "Avlogget!"
+    redirect_to login_url, :notice => "Avlogget å!"
   end
 
 end

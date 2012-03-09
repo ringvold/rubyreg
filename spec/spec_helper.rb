@@ -1,3 +1,4 @@
+# encoding: utf-8
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
@@ -31,3 +32,21 @@ RSpec.configure do |config|
   
 end
 
+Capybara.run_server = true #Whether start server when testing
+# Capybara.server_port = 3000
+Capybara.default_selector = :css #:xpath #default selector , you can change to :css
+Capybara.default_wait_time = 5 #When we testing AJAX, we can set a default wait time
+Capybara.ignore_hidden_elements = false #Ignore hidden elements when testing, make helpful when you hide or show elements using javascript
+Capybara.javascript_driver = :selenium #default driver when you using @javascript tag
+# Other option is:
+# Capybara.javascript_driver = :webkit
+
+class ActiveRecord::Base
+  mattr_accessor :shared_connection
+  @@shared_connection = nil
+
+  def self.connection
+    @@shared_connection || retrieve_connection
+  end
+end
+ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection

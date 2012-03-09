@@ -1,0 +1,8 @@
+<%= simple_form_for @field_type,
+	:html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :title, :label => "Navn" %>
+  <%= f.input :field_type, :label => "Type" %>
+  <%= f.button :submit, :value => "Lagre" %>
+<% end %>

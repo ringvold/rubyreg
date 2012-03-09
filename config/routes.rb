@@ -6,8 +6,11 @@ Rubyreg::Application.routes.draw do
   get "dashboard" => "dashboard#index", :as => "dashboard"
   
   resources :sessions
-  resources :events
   resources :users
+  resources :field_types
+  resources :events do
+    resources :fields
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

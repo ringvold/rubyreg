@@ -2,15 +2,44 @@
 <html>
 <head>
   <title>Rubyreg</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<p class='notice'><%= notice %></p>
-<p class='alert'><%= alert %></p>
 
-<%= yield %>
+<div id="container" class="container">
+	<header>
+		<div class="navbar ">
+		  <div class="navbar-inner">
+		    <div class="container">
+		    	<a class="brand" href="#">
+					  RubyReg
+					</a>
+		      <ul class="nav">
+					  <li class="active">
+					    <a href="<%= events_path %>">Events</a>
+					  </li>
+					  <li><a href="<%= users_path %>">Users</a></li>
+					</ul>
+				  <ul id="nav-inner-right" class="nav pull-right">
+				  	<li><a href="<%= logout_path %>">Logout</a></li>
+				  	<li><a href="">&nbsp;</a></li>
+				  </ul><!-- /nav-inner-right -->
+		    </div>
+		  </div>
+		</div>
+	</header>	
+	<% if notice != nil %>
+		<div class='notice'><%= notice %></div>
+	<% end %>
+	<% if alert != nil %>
+		<div class='alert'><%= alert %></div>
+	<% end %>
 
+	<%= yield %>
+
+</div><!-- /container -->
 </body>
 </html>

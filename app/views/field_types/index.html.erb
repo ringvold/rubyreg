@@ -1,0 +1,21 @@
+<h1>Elementtyper</h1>
+<%= link_to 'Ny felttype', new_field_type_path %>
+
+<table class="table table-striped" >
+  <tr>
+    <th>Navn
+    <th>Type
+    <th>
+    <th>
+  </tr>
+
+<% @field_types.each do |field_type| %>
+  <tr>
+    <td><%= field_type.title %>
+    <td><%= field_type.field_type %>
+    <td><%= link_to 'Edit', edit_field_type_path(field_type) %>
+    <td><%= link_to 'Destroy', field_type, confirm: 'Are you sure?', method: :delete %>
+  </tr>
+<% end %>
+</table>
+

@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.xml
   def index
-    @events = Event.active
+    @events = Event.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -34,7 +34,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @event = Event.find(params[:id])
+    @event  = Event.find(params[:id])
   end
 
   # POST /events

@@ -6,7 +6,7 @@ gem 'rails', '3.2.0'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3', '~> 1.3.4'
-gem 'formtastic'
+gem 'simple_form'
 gem 'client_side_validations'
 gem 'sorcery'
 gem 'cancan'
@@ -39,6 +39,7 @@ group :test do
   gem 'capybara'
   gem 'guard'
   gem 'guard-rspec'
+  gem 'capybara-webkit'
 end
 
 # js fix

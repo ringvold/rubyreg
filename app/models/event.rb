@@ -8,7 +8,6 @@ class Event < ActiveRecord::Base
 
   scope :active, 	where(:active => true)
   scope :active_and_active_by_date, active.where("start_date < ?", Date.today).where("end_date > ?", Date.new)
-
   
 #  def to_slug
 #    title.downcase.gsub(' ', '-')

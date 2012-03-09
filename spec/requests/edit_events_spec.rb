@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'spec_helper'
 
 describe 'EditEvents' do
@@ -17,10 +18,10 @@ describe 'EditEvents' do
     page.should have_content("Event was successfully updated.")
 	end
 
-  it "adds a new Field" do
-    pending "Waiting for later"
+  it "adds a new Field", :js => true do
+    pending "Må vente til field er ferdig"
     visit edit_event_path(@event)
-    click_on "Add event"
+    click_on "Nytt felt"
     page.should have_css "#field#{@event.id}"
   end
 end

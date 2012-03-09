@@ -1,0 +1,21 @@
+<h1>Listing fields</h1>
+
+<table>
+  <tr>
+    <th>Tittel
+    <th>
+    <th>
+  </tr>
+
+<%= link_to 'New Field', new_event_field_path %>
+<% @fields.each do |field| %>
+  <tr>
+    <td><%= field.field_label %>
+    <td><%= link_to 'Edit', edit_event_field_path(@event, field) %></td>
+    <td><%= link_to 'Destroy', @event, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

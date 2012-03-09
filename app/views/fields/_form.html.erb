@@ -1,0 +1,11 @@
+<%= simple_form_for [@event, @field],
+	:html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :field_label, :label => "Tittel" %>
+  <%= f.input :required, :label => "Må utfylles" %>
+  <%= f.input :field_type_id, :collection => FieldType.all, :label => "Type" %>
+  <%= f.input :event_id, :as => :hidden	 %>
+  <%= f.input :field_order, :as => :hidden %>
+  <%= f.button :submit %>
+<% end %>

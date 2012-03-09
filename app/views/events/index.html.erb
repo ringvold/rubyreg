@@ -1,0 +1,23 @@
+<h1>Påmeldinger</h1>
+<%= link_to 'New Event', new_event_path %>
+<table class="table table-striped" >
+  <tr>
+    <th>Tittel
+    <th>Beskrivelse
+    <th>Plasser
+    <th>Påmeldingsvindu
+    <th>
+    <th>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr>
+    <td><%= event.title %>
+    <td><%= event.description %>
+    <td><%= event.max_att %>  
+    <td><%= event.start_date %> - <%= event.end_date %>
+    <td><%= link_to 'Rediger', edit_event_path(event) %>
+    <td><%= link_to 'Slett', event, confirm: 'Er du sikker?', method: :delete %>
+  </tr>
+<% end %>
+</table>

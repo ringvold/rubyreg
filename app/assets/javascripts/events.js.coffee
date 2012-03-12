@@ -9,6 +9,14 @@ jQuery ->
 	$("#fields").sortable(
 		placeholder: 'ui-state-highlight',
 		stop: updateOrder)
+	$('#event_start_date').datepicker
+		dateFormat: "dd-mm-yy"
+		showOtherMonths: true,
+		selectOtherMonths: true
+	$('#event_end_date').datepicker
+		dateFormat: "dd-mm-yy"
+		showOtherMonths: true,
+		selectOtherMonths: true
 
 updateOrder = ->
 	data = {}

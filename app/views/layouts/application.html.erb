@@ -6,6 +6,7 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/redmond/jquery-ui.css">
 </head>
 <body>
 
@@ -18,10 +19,12 @@
 					  RubyReg
 					</a>
 		      <ul class="nav">
-					  <li class="active">
-					    <a href="<%= events_path %>">Events</a>
+					  <li class="<%= is_active?(events_path)%>" >
+					    <%= link_to "Events", events_path %>
 					  </li>
-					  <li><a href="<%= users_path %>">Users</a></li>
+					  <li class="<%= is_active?(users_path)%>">
+					  	<%= link_to "Brukere", users_path %>
+					  </li>
 					</ul>
 				  <ul id="nav-inner-right" class="nav pull-right">
 				  	<li><a href="<%= logout_path %>">Logout</a></li>
@@ -32,10 +35,10 @@
 		</div>
 	</header>	
 	<% if notice != nil %>
-		<div class='notice'><%= notice %></div>
+		<div class='alert alert-info'><%= notice %></div>
 	<% end %>
 	<% if alert != nil %>
-		<div class='alert'><%= alert %></div>
+		<div class='alert alert-error'><%= alert %></div>
 	<% end %>
 
 	<%= yield %>

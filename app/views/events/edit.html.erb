@@ -6,7 +6,16 @@
 
 	<%= render "add_element" %>
 
-	<ul id="fields" >
+	<!-- <ul id="fields" > -->
+	<table>
+	<!-- 	<thead>
+			<tr>
+				<th>header</th>
+			</tr>
+		</thead> -->
+		<tbody>
+			
+		
 		<% if @event.fields == nil  %>
 
 			<p class="well" >Det er ikke laget noen felt enda.</p>
@@ -14,11 +23,20 @@
 		<% else %>
 
 			<% @event.fields.each do |field| %>
-				<li><%= field.field_label %></li>	
+				<tr>
+					<td><%= field.field_label %>
+					<td><%= field.required %>
+					<td><%= FieldType.find(field.field_type_id).title %>
+					<td><%= link_to "Rediger", edit_event_field_path(@event, field) %>
+					<td><%= link_to 'Slett', [@event, field] , confirm: 'Er du sikker?', method: :delete %>
+				</tr>
+					
 			<% end %>
 
 		<% end %>
-	</ul>
+		</tbody>
+	</table>
+	<!-- </ul> -->
 
 	<%= render "add_element" %>
 

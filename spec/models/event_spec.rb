@@ -51,4 +51,5 @@ describe Event do
     events = Event.active
     events.count.should eq 1
   end
+
 end

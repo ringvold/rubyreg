@@ -57,7 +57,7 @@ class FieldsController < ApplicationController
   # PUT /fields/1
   # PUT /fields/1.json
   def update
-    @field = Field.find(params[:id])
+    @field = @event.fields.find(params[:id])
 
     respond_to do |format|
       if @field.update_attributes(params[:field])
@@ -73,11 +73,11 @@ class FieldsController < ApplicationController
   # DELETE /fields/1
   # DELETE /fields/1.json
   def destroy
-    @field = Field.find(params[:id])
+    @field = @event.fields.find(params[:id])
     @field.destroy
 
     respond_to do |format|
-      format.html { redirect_to fields_url }
+      format.html { redirect_to edit_event_path(@event), notice: 'Feltet ble slettet.' }
       format.json { head :no_content }
     end
   end

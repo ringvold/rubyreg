@@ -15,7 +15,7 @@
     <td><%= event.title %>
     <td><%= event.description %>
     <td><%= event.max_att %>  
-    <td><%= event.start_date %> - <%= event.end_date %>
+    <td><%= event.start_date.strftime("%d. %b %Y") %> - <%= event.end_date.strftime("%d. %b %Y") %>
     <td><%= link_to 'Rediger', edit_event_path(event) %>
     <td><%= link_to 'Slett', event, confirm: 'Er du sikker?', method: :delete %>
   </tr>

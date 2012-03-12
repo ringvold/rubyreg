@@ -16,5 +16,13 @@ Factory.define :user do |f|
 	f.email "user@email.com"
 	f.name "User"
 	f.password "test"
-	
+end
+
+Factory.define :field do |f|
+	f.sequence(:field_label) { |n| "Field#{n}"}
+	f.description "Test description"
+	f.sequence(:field_order) { |n| n }
+	f.required true
+	f.event_id 1
+	f.field_type_id 1
 end

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'spec_helper'
 
 describe "EditFieldTypes" do
@@ -7,7 +9,7 @@ describe "EditFieldTypes" do
 	end
 	
 	it "edits field type" do
-		visit edit_field_type_path(@user)
+		visit edit_field_type_path()
 		fill_in "Navn", :with => "Tekstboks"
 		fill_in "Type", :with => "textarea"
 		click_button "Lagre"

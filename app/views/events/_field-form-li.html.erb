@@ -1,0 +1,25 @@
+<li id="field<%= field.id %>">
+<table  > 
+	<tr>
+
+<%= simple_form_for [@event, field], :wrapper => :default do |f| %>
+  <%= f.error_notification %>
+		
+  <td>
+    <%= f.input :field_label, :label => "Tittel", :id => "#{field.id}" %>
+  <td>
+    <%= f.input :required, :label => "Må utfylles" %>
+  <td>
+    <%= f.input :field_type_id, :collection => FieldType.all, :label => "Type" %>
+  <td>
+    <%= f.input :id, :as => :hidden %>
+    <%= f.input :event_id, :as => :hidden  %>
+    <%= f.input :field_order, :as => :hidden %>
+  <td>
+    <%= f.submit :submit, :class => "btn btn-primary",:value => "Lagre", :id => 'submit-field' %>  
+    <%= link_to 'Slett', [@event,field], confirm: 'Er du sikker?', method: :delete, :class => 'btn btn-danger delete-field', :id => 'delete-field'  %>
+<% end %>
+	</tr>
+</table>
+</li>
+

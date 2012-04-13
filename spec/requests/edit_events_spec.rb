@@ -1,4 +1,4 @@
-# encoding: utf-8
+  # encoding: utf-8
 require 'spec_helper'
 
 describe 'EditEvents' do
@@ -19,7 +19,6 @@ describe 'EditEvents' do
 	end
 
   it "adds a new Field", :js => true do
-    pending "Må vente til field er ferdig"
     visit edit_event_path(@event)
     click_on "Nytt felt"
     page.should have_css "#field#{@event.id}"

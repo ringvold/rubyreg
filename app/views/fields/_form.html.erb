@@ -7,5 +7,8 @@
   <%= f.input :field_type_id, :collection => FieldType.all, :label => "Type" %>
   <%= f.input :event_id, :as => :hidden	 %>
   <%= f.input :field_order, :as => :hidden %>
-  <%= f.button :submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to 'Cancel', edit_event_path(@event), :class => 'btn' %>
+  </div>
 <% end %>

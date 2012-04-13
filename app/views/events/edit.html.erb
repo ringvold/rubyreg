@@ -6,14 +6,8 @@
 
 	<%= render "add_element" %>
 
-	<!-- <ul id="fields" > -->
-	<table>
-	<!-- 	<thead>
-			<tr>
-				<th>header</th>
-			</tr>
-		</thead> -->
-		<tbody>
+	<ol id="fields" >
+	<!-- <table class="table table-striped" id="fields" ><tbody> -->
 			
 		
 		<% if @event.fields == nil  %>
@@ -23,20 +17,15 @@
 		<% else %>
 
 			<% @event.fields.each do |field| %>
-				<tr>
-					<td><%= field.field_label %>
-					<td><%= field.required %>
-					<td><%= FieldType.find(field.field_type_id).title %>
-					<td><%= link_to "Rediger", edit_event_field_path(@event, field) %>
-					<td><%= link_to 'Slett', [@event, field] , confirm: 'Er du sikker?', method: :delete %>
-				</tr>
-					
+
+				<%= render :partial => "field-form-li", :locals => { :field => field } %>
+
+					 
 			<% end %>
 
 		<% end %>
-		</tbody>
-	</table>
-	<!-- </ul> -->
+		<!-- </tbody></table> -->
+	</ol>
 
 	<%= render "add_element" %>
 
@@ -44,3 +33,17 @@
   <% #foreach($thisForm->getPopulatedFields($thisForm->id)as $field): %>
     <% #newField($thisForm->id, true, $field); %>
     <% #end %> 
+
+<div class="modal" id="delete-modal" style="display:none">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <p>Er du sikker på du vil slette elementet?</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" data-dismiss="modal" class="btn">Avbryt</a>
+    <a href="#delete-confirm" class="btn btn-primary delete-confirm">Slett element</a>
+  </div>
+</div>

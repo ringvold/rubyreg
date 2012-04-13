@@ -41,12 +41,12 @@ Capybara.javascript_driver = :selenium #default driver when you using @javascrip
 # Other option is:
 # Capybara.javascript_driver = :webkit
 
-# class ActiveRecord::Base
-#   mattr_accessor :shared_connection
-#   @@shared_connection = nil
+class ActiveRecord::Base
+  mattr_accessor :shared_connection
+  @@shared_connection = nil
 
-#   def self.connection
-#     @@shared_connection || retrieve_connection
-#   end
-# end
-# ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
+  def self.connection
+    @@shared_connection || retrieve_connection
+  end
+end
+ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection

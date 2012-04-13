@@ -3,6 +3,9 @@
 <head>
   <title>Rubyreg</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -15,7 +18,7 @@
 		<div class="navbar ">
 		  <div class="navbar-inner">
 		    <div class="container">
-		    	<a class="brand" href="#">
+		    	<a class="brand" href="/">
 					  RubyReg
 					</a>
 		      <ul class="nav">
@@ -28,7 +31,7 @@
 					</ul>
 				  <ul id="nav-inner-right" class="nav pull-right">
 				  	<li><a href="<%= logout_path %>">Logout</a></li>
-				  	<li><a href="">&nbsp;</a></li>
+				  	<li><a href="">&nbsp;</a></li> <!-- Empty li needed for logout to be positioned correctly -->
 				  </ul><!-- /nav-inner-right -->
 		    </div>
 		  </div>

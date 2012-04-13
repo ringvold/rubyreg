@@ -3,4 +3,51 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.add-element { margin-bottom: 19px;}
+#event_description { width:500px }
+
+.add-element { margin-bottom: 19px; }
+
+#fields {
+	margin: 10px 0;
+}
+.addFields li { 
+	list-style:none; 
+	padding: 10px 0 ;
+}
+
+#fields label { display: inline; margin:0 10px;}
+
+#fields li:nth-child(even) {
+  background-color: #fff;
+}
+
+#fields li:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+#fields table {
+	max-width: 100%;
+	width: 100%;
+	border-collapse: collapse;
+  border-spacing: 0;
+}
+
+#fields li { border-top: 1px solid #ddd; }
+
+#fields li:hover { background-color: #f5f5f5;}
+
+#fields .ui-state-highlight { list-style: none; height: 40px;  }
+
+#fields .ui-sortable-helper  { list-style: none; }
+
+form textarea,
+form .wysiwyg {
+  padding: 6px;
+  font-size: 13px;
+  background: #fff url('../assets/bg-form-field.gif') top left repeat-x;
+  border: 1px solid #d5d5d5;
+}
+
+div.wysiwyg ul.panel { padding: 6px 0 9px 0;}
+div.wysiwyg ul.panel li a { opacity: 0.6; }
+div.wysiwyg ul.panel li a:hover, div.wysiwyg ul.panel li a.active { opacity: 0.99; }

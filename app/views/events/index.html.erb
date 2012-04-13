@@ -1,12 +1,12 @@
 <h1>Påmeldinger</h1>
-<%= link_to 'New Event', new_event_path %>
+
+
 <table class="table table-striped" >
   <tr>
     <th>Tittel
     <th>Beskrivelse
     <th>Plasser
     <th>Påmeldingsvindu
-    <th>
     <th>
   </tr>
 
@@ -16,8 +16,10 @@
     <td><%= event.description %>
     <td><%= event.max_att %>  
     <td><%= event.start_date.strftime("%d. %b %Y") %> - <%= event.end_date.strftime("%d. %b %Y") %>
-    <td><%= link_to 'Rediger', edit_event_path(event) %>
-    <td><%= link_to 'Slett', event, confirm: 'Er du sikker?', method: :delete %>
+    <td>
+      <%= link_to 'Rediger', edit_event_path(event), :class => 'btn btn-mini'%>
+      <%= link_to 'Slett', event, confirm: 'Er du sikker?', method: :delete,  :class => 'btn btn-mini btn-danger' %>
   </tr>
 <% end %>
 </table>
+<%= link_to 'Ny påmelding', new_event_path, :class => 'btn btn-primary' %>

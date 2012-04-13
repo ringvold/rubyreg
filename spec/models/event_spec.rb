@@ -26,15 +26,15 @@ describe Event do
   it "can get active and active by date" do
     event = Factory(
       :event, 
-      :start_date => "25.10.2011", 
-      :end_date => "04.11.2011",
+      :start_date => Date.new + 1, 
+      :end_date => Date.new + 5,
       :active => true
     )
     event.save
 
     event2 = Factory(
-      :event, :start_date => "24.10.2011", 
-      :end_date => "05.11.2011",
+      :event, :start_date => Date.new + 1, 
+      :end_date => Date.new + 5,
       :active => true
     )
     event2.save
@@ -51,5 +51,5 @@ describe Event do
     events = Event.active
     events.count.should eq 1
   end
-
+  
 end

@@ -5,19 +5,19 @@
     <th>Email
     <th>
     <th>
-    <th>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
     <td><%= user.username %>
     <td><%= user.email %>
-    <td><%= link_to 'Rediger', edit_user_path(user) %>
-    <td><%= link_to 'Slett', user, confirm: 'Er du sikker?', method: :delete %>
+    <td>
+      <%= link_to 'Rediger', edit_user_path(user) %>
+      <%= link_to 'Slett', user, confirm: 'Er du sikker?', method: :delete %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'Ny bruker', new_user_path, :class => 'btn btn-primary' %>

@@ -5,4 +5,4 @@ require File.expand_path('../application', __FILE__)
 Rubyreg::Application.initialize!
 
 # Date::DATE_FORMATS[:default] = "%d-%m-%Y"
-Date::DATE_FORMATS[:db] = "%d-%m-%Y"
+# Date::DATE_FORMATS[:db] = "%d-%m-%Y"

@@ -6,6 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require_tree .
-//= require rails.validations
 //= require jquery-ui
+//= require jquery.wysiwyg

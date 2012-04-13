@@ -1,7 +1,8 @@
 class FieldsController < ApplicationController
   before_filter(:get_event)
-  # GET /fields
-  # GET /fields.json
+  
+  # GET /events/1/fields
+  # GET /events/1/fields.json
   def index
     @fields = @event.fields.all
 
@@ -11,8 +12,8 @@ class FieldsController < ApplicationController
     end
   end
 
-  # GET /fields/1
-  # GET /fields/1.json
+  # GET /events/1/fields/1
+  # GET /events/1/fields/1.json
   def show
     @field = @event.fields.find(params[:id])
 
@@ -22,8 +23,8 @@ class FieldsController < ApplicationController
     end
   end
 
-  # GET /fields/new
-  # GET /fields/new.json
+  # GET /events/1/events/1/fields/new
+  # GET /events/1/events/1/fields/new.json
   def new
     @field = @event.fields.new
 
@@ -33,13 +34,13 @@ class FieldsController < ApplicationController
     end
   end
 
-  # GET /fields/1/edit
+  # GET /events/1/fields/1/edit
   def edit
     @field = @event.fields.find(params[:id])
   end
 
-  # POST /fields
-  # POST /fields.json
+  # POST /events/1/fields
+  # POST /events/1/fields.json
   def create
     @field = @event.fields.new(params[:field])
 
@@ -54,8 +55,8 @@ class FieldsController < ApplicationController
     end
   end
 
-  # PUT /fields/1
-  # PUT /fields/1.json
+  # PUT /events/1/fields/1
+  # PUT /events/1/fields/1.json
   def update
     @field = @event.fields.find(params[:id])
 
@@ -70,8 +71,8 @@ class FieldsController < ApplicationController
     end
   end
 
-  # DELETE /fields/1
-  # DELETE /fields/1.json
+  # DELETE /events/1/fields/1
+  # DELETE /events/1/fields/1.json
   def destroy
     @field = @event.fields.find(params[:id])
     @field.destroy

@@ -6,6 +6,9 @@
     <%= f.input :email %>
     <%= f.input :password %>
     <%= f.input :password_confirmation, :required => true %>
-  	<%= f.button :submit %>
+  	<div class="form-actions">
+    <%= f.submit nil, :value => "Lagre", :class => 'btn btn-primary' %>
+    <%= link_to 'Avbryt', users_path, :class => 'btn' %>
+  </div>
   <% end %>
 

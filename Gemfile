@@ -7,7 +7,6 @@ gem 'rails', '3.2.0'
 
 gem 'sqlite3', '~> 1.3.4'
 gem 'simple_form'
-gem 'client_side_validations'
 gem 'sorcery'
 gem 'cancan'
 gem 'libnotify'
@@ -18,6 +17,7 @@ group :assets do
   gem 'sass-rails', "  ~> 3.2.3"
   gem 'coffee-rails', "~> 3.2.1"
   gem 'uglifier', ">= 1.1.3"
+  gem 'twitter-bootstrap-rails'
 end
 
 gem 'jquery-rails'

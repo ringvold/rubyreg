@@ -22,16 +22,20 @@
 					  RubyReg
 					</a>
 		      <ul class="nav">
+		      	<% #if logged_in?%>
 					  <li class="<%= is_active?(events_path)%>" >
 					    <%= link_to "Events", events_path %>
 					  </li>
 					  <li class="<%= is_active?(users_path)%>">
 					  	<%= link_to "Brukere", users_path %>
 					  </li>
+					  <% #end %>
 					</ul>
-				  <ul id="nav-inner-right" class="nav pull-right">
-				  	<li><a href="<%= logout_path %>">Logout</a></li>
-				  	<li><a href="">&nbsp;</a></li> <!-- Empty li needed for logout to be positioned correctly -->
+				  <ul id="nav-inner-right" class="nav pull-right">	<% if logged_in?%>
+				  	<li><a href="<%= logout_path %>">Logg ut</a></li>
+				  	<% else %>
+				  	<li><a href="<%= login_path %>">Logg inn</a></li>
+				  	<% end %>
 				  </ul><!-- /nav-inner-right -->
 		    </div>
 		  </div>

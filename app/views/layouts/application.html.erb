@@ -23,10 +23,10 @@
 					</a>
 		      <ul class="nav">
 		      	<% #if logged_in?%>
-					  <li class="<%= is_active?(events_path)%>" >
+					  <li class="<%= is_active?("events")%>" >
 					    <%= link_to "Events", events_path %>
 					  </li>
-					  <li class="<%= is_active?(users_path)%>">
+					  <li class="<%= is_active?("users")%>">
 					  	<%= link_to "Brukere", users_path %>
 					  </li>
 					  <% #end %>

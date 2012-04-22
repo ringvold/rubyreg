@@ -80,5 +80,14 @@ class EventsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def updateOrder
+    # puts YAML::dump(params)
+    # logger.debug params[:fields].values
+    Field.update_order(params[:fields])
+
+    render :nothing => true
+  end
+
 end
 

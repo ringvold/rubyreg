@@ -7,7 +7,7 @@ jQuery ->
 	$("#fields").sortable
 		placeholder: 'ui-state-highlight',
 		# helper: fixHelper,
-		# stop: updateOrder
+		stop: updateOrder
 
 	# Remove links when javascript is enabled
 	# $('.add-field').attr('href', '#add-field')
@@ -58,20 +58,25 @@ jQuery ->
 
 	# Applies WYSIWYG editor to any textarea with the class "wysiwyg"
 	$(".wysiwyg").wysiwyg
-		css: 'assets/application.css'
+		css: '/assets/application.css'
 
-# end jQuery
+# end jQuery (document ready)
  
 
 updateOrder = ->
+	fields = $("#fields")
+	event_id = fields.find("#field_event_id").attr("value");
 	data = {}
-	($("#fields li").each ->
+	data.fields = {}
+	fields.find('li').each ->
 		$this = $(this)
-		id = $this.find("input[name=id]").attr("value")
+		id = $this.find("input[name='field[id]']").attr("value")
 		input = $this.find("input[name*=order]")
 		input.attr("value", $this.index()+1)
-		data[id] = input.attr("value"))
-	$.post("/fields/updateorder", data, "json")
+		data.fields[id] = {}
+		data.fields[id]['field_order'] = input.attr("value")
+		console.log(data)
+	$.post("/events/#{event_id}/updateOrder", data, "json")
 
 # Return a helper with preserved width of cells
 fixHelper = (e, ui) ->

@@ -6,6 +6,8 @@ Rubyreg::Application.routes.draw do
   get "signup" => "users#new", :as => "signup"
   get "dashboard" => "dashboard#index", :as => "dashboard"
 
+  match "/events/:id/updateOrder" => "events#updateOrder"
+
   resources :sessions
   resources :users
   resources :field_types

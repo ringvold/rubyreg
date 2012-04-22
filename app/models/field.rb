@@ -4,5 +4,10 @@ class Field < ActiveRecord::Base
   
   has_one :field_type
   has_one :event
+
+	def self.update_order(data)
+		Field.update(data.keys, data.values)
+	end
+
 end
 

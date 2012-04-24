@@ -30,7 +30,7 @@ class FieldsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @field }
+      format.json { render :parial => "new", :status => 200 }
     end
   end
 

@@ -7,7 +7,7 @@
 	<%= render "add_element" %>
 
 	<ol id="fields" >
-	<!-- <table class="table table-striped" id="fields" ><tbody> -->
+	
 		<% if @event.fields == nil  %>
 
 			<p class="well" >Det er ikke laget noen felt enda.</p>
@@ -15,11 +15,11 @@
 		<% else %>
 
 			<% @event.fields.order(:field_order).each do |field| %>
-				<%= render :partial => "field-form-li", :locals => { :field => field } %>
+				<%= render_field(@event, field) %>
 			<% end %>
 
 		<% end %>
-		<!-- </tbody></table> -->
+
 	</ol>
 
 	<%= render "add_element" %>

@@ -1,0 +1,15 @@
+<% 
+# Generates the field html as a json compliant 
+# object so it can be passed in a json response. 
+# A little hackery needed since the json_escape 
+# method escapes a little too much.
+# This hack basicly leaves double quotes alone the first time 
+# around and then replaces it with single quotes instead of
+# removing it completely.
+
+json_escape = { '&' => '\u0026', '>' => '\u003E', '<' => '\u003C' }
+%>
+
+{	
+	"html": "<%= render_field(@event, @field).gsub(/[&><]/){ |special| json_escape[special] }.gsub(/\n|\t/," ").gsub(/"/, "'") %>"
+}

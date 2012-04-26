@@ -1,5 +1,7 @@
 Rubyreg::Application.routes.draw do
 
+  resources :replies
+
   root :to => 'public#index' 
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"

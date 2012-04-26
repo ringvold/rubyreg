@@ -47,7 +47,7 @@ class FieldsController < ApplicationController
     respond_to do |format|
       if @field.save
         format.html { redirect_to edit_event_path(@event), notice: 'Field was successfully created.' }
-        format.json { render json: @field, status: :created, location: @field }
+        format.json { render json: @field, status: :created, location: [@event,@field] }
       else
         format.html { render action: "new" }
         format.json { render json: @field.errors, status: :unprocessable_entity }

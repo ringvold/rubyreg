@@ -4,7 +4,7 @@
     <th>Brukernavn
     <th>Email
     <th>
-    <th>
+
   </tr>
 
 <% @users.each do |user| %>
@@ -12,8 +12,8 @@
     <td><%= user.username %>
     <td><%= user.email %>
     <td>
-      <%= link_to 'Rediger', edit_user_path(user) %>
-      <%= link_to 'Slett', user, confirm: 'Er du sikker?', method: :delete %>
+      <%= link_to 'Rediger', edit_user_path(user), :class => 'btn btn-mini' %>
+      <%= link_to 'Slett', user, confirm: 'Er du sikker?', :method => :delete, :class => 'btn btn-mini btn-danger' %>
   </tr>
 <% end %>
 </table>

@@ -1,6 +1,5 @@
 <% @events.each do |event| %>
 <h2>
-	<%= event.title %>
+	<a href="<%= reply_event_path(event) %>"><%= event.title %></a>
 </h2>
-    
 <% end %>

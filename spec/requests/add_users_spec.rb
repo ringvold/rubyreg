@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+require 'spec_helper'
 describe "AddUser" do
 
 	it "creates a new user" do

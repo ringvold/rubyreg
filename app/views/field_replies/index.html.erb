@@ -1,0 +1,21 @@
+<h1>Listing field_replies</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @field_replies.each do |field_reply| %>
+  <tr>
+    <td><%= link_to 'Show', field_reply %></td>
+    <td><%= link_to 'Edit', edit_field_reply_path(field_reply) %></td>
+    <td><%= link_to 'Destroy', field_reply, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Field reply', new_field_reply_path %>

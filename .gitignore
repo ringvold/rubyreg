@@ -6,3 +6,11 @@ tmp/
 
 rubyreg.sublime-project
 rubyreg.sublime-workspace
+
+
+test
+spec
+Vagrantfile
+.DS_Store
+.vagrant
+cookbooks

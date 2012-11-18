@@ -1,6 +1,8 @@
 class FieldReply < ActiveRecord::Base
-  validates :title, :field_type, :presence => true
+  belongs_to :reply
+  belongs_to :event
   
-  has_many :replies
-  has_many :events
+  attr_accessible :content, :field_id, :reply_id
+
+  validates :content, :field_id, :reply_id, :presence => true
 end

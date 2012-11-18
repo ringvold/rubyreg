@@ -10,9 +10,14 @@
 #fields {
 	margin: 10px 0;
 }
+
+.fields-container {
+  margin-bottom: 40px;
+}
+
 .fields-container li { 
 	list-style:none; 
-	padding: 10px 0 ;
+	padding: 10px 0;
 }
 
 #fields label { display: inline; margin:0 10px;}

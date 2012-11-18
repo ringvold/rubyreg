@@ -9,7 +9,8 @@ gem 'sqlite3', '~> 1.3.4'
 gem 'simple_form'
 gem 'sorcery'
 gem 'cancan'
-gem 'libnotify'
+gem 'bureaucrat'
+gem 'active_attr'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,7 +22,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'bcrypt-ruby'
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -39,7 +40,7 @@ group :test do
   gem 'capybara'
   gem 'guard'
   gem 'guard-rspec'
-  gem 'capybara-webkit'
+  # gem 'capybara-webkit'
 end
 
 # js fix

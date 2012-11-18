@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_filter :require_login
+
   # GET /events
   # GET /events.xml
   def index
@@ -89,5 +91,27 @@ class EventsController < ApplicationController
     render :nothing => true
   end
 
+  # GET /events/1/fill
+  def fill
+    @event = Event.find(params[:id])
+    @fields = @event.fields
+  end
+
+  def reply
+    @event = Event.find(params[:id])
+    # @form = Form.new
+    @form = @event.create_form
+  end
+
+  def replies
+    @event = Event.find(params[:id])
+    @replies = @event.replies
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @replies }
+    end
+    
+  end
 end
 

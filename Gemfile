@@ -9,8 +9,8 @@ gem 'sqlite3', '~> 1.3.4'
 gem 'simple_form'
 gem 'sorcery'
 gem 'cancan'
-gem 'bureaucrat'
 gem 'active_attr'
+gem 'stringex'
 
 # Gems used only for assets and not required
 # in production environments by default.

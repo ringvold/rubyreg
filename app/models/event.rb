@@ -1,6 +1,3 @@
-require 'bureaucrat'
-require 'bureaucrat/quickfields'
-
 class Event < ActiveRecord::Base
   has_many :replies
   has_many :field_replies, :through => :replies

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121118030528) do
+ActiveRecord::Schema.define(:version => 20121118141944) do
 
   create_table "event_types", :force => true do |t|
     t.string   "name",       :null => false
@@ -20,14 +20,15 @@ ActiveRecord::Schema.define(:version => 20121118030528) do
   end
 
   create_table "events", :force => true do |t|
-    t.string   "title",       :null => false
+    t.string   "title",         :null => false
     t.string   "description"
-    t.date     "start_date",  :null => false
-    t.date     "end_date",    :null => false
-    t.integer  "max_att",     :null => false
+    t.date     "start_date",    :null => false
+    t.date     "end_date",      :null => false
+    t.integer  "max_att",       :null => false
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "replies_count"
   end
 
   create_table "field_replies", :force => true do |t|
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20121118030528) do
     t.integer  "field_type_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   create_table "replies", :force => true do |t|

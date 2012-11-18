@@ -110,6 +110,8 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @replies }
+      # format.csv { send_data @replies.to_csv }
+      format.xls
     end
     
   end

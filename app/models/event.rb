@@ -33,9 +33,11 @@ class Event < ActiveRecord::Base
 			fields_by_order.each do |field|
         field_name_symbol = field.field_label.downcase
         new_field = "f.attribute :#{field_name_symbol}"
-        new_field_id = "f.attribute :hidden_#{field_name_symbol}"
+        new_field_id = "f.attribute :hidden_#{field_name_symbol}, default: #{field.id}"
         eval(new_field)
         eval(new_field_id)
+        # f.send(:attr_accessor, "hidden_#{field_name_symbol}")
+        # eval("f.hidden_#{field_name_symbol} = field.id")
         if field.required
           eval("f.validates :#{field_name_symbol}, :presence => true")
         end

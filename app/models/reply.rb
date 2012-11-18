@@ -7,10 +7,10 @@ class Reply < ActiveRecord::Base
   validates :event, :presence => true
   
   def create_field_replies(reply, field_ids)
-  	self.transaction do
-  		self.save
+  	transaction do
+  		save
 	  	reply.each do |key, value|
-	  		field_id = field_ids.fetch "hidden_#{key}"
+	  		field_id = field_ids.fetch "hidden_#{key}".to_sym
 	  		if key.eql? :id
 	  		else
 	  			field_replies.create(:content => value, :field_id => field_id)

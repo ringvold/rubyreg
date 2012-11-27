@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_filter :require_login
+  before_filter :require_login, :except => [:reply, :thanks]
 
   # GET /events
   # GET /events.xml
@@ -91,18 +91,6 @@ class EventsController < ApplicationController
     render :nothing => true
   end
 
-  # GET /events/1/fill
-  def fill
-    @event = Event.find(params[:id])
-    @fields = @event.fields
-  end
-
-  def reply
-    @event = Event.find(params[:id])
-    # @form = Form.new
-    @form = @event.create_form
-  end
-
   def replies
     @event = Event.find(params[:id])
     @replies = @event.replies
@@ -113,7 +101,20 @@ class EventsController < ApplicationController
       # format.csv { send_data @replies.to_csv }
       format.xls
     end
-    
+  end
+
+  def reply
+    @event = Event.find(params[:id])
+    # @form = Form.new
+    @form = @event.create_form(params[:reply])
+    @slug_label = @event.slug_and_label
+    render :layout => "public"
+  end
+
+
+  def thanks
+    @event = Event.find(params[:id])
+    render :layout => "public"
   end
 end
 

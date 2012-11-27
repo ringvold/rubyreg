@@ -1,5 +1,5 @@
 class EventType < ActiveRecord::Base
   validates :name, :presence => true
   
-  has_many :fields
+  has_many :events
 end

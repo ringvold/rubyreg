@@ -1,8 +1,10 @@
-<h1>Rediger påmelding</h1>
-<%= render 'form' %>
+<h1><%= @event.title %> <small class="toggle-basic">Rediger basic info</small></h1> 
+	<div class="edit-form">
+		<%= render 'form' %>
+	</div>
 
 <div class="fields-container">
-	<h2>Felt</h2>
+	<h2>Rediger felt</h2>
 
 	<%= render "add_element" %>
 
@@ -10,7 +12,7 @@
 	
 		<% if @event.fields == nil  %>
 
-			<p class="well" >Det er ikke laget noen felt enda.</p>
+			<p class="well">Det er ikke laget noen felt enda.</p>
 
 		<% else %>
 
@@ -23,6 +25,8 @@
 	</ol>
 
 	<%= render "add_element" %>
+
+</div>
 
 <div class="modal" id="delete-modal" style="display:none">
   <div class="modal-header">

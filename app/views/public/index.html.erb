@@ -1,5 +1,10 @@
-<% @events.each do |event| %>
-<h2>
-	<a href="<%= reply_event_path(event) %>"><%= event.title %></a>
-</h2>
-<% end %>
+<h2><%= t ".open-events", default: "Open registrations" %></h2>
+<ul>
+	<% @events.each do |event| %>
+		<li>
+			<h3>
+				<a href="<%= reply_event_path(event) %>"><%= event.title %></a>
+			</h3>
+		</li>
+	<% end %>
+</ul>

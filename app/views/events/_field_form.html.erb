@@ -6,14 +6,14 @@
   <%= f.error_notification %>
 		
   <td>
-    <%= f.input :field_label, :label => "Tittel", :id => "#{field.id}" %>
+    <%= f.input :field_label, :label => "Tittel", :input_html => { id: "field#{field.id}_field_label"}, :label_html => { for: "field#{field.id}_field_label"} %>
   <td>
-    <%= f.input :required, :label => "Må utfylles" %>
+    <%= f.input :required, :label => "Må utfylles", :input_html => { id: "field#{field.id}_required"}, :label_html => { for: "field#{field.id}_required"} %>
   <td>
-    <%= f.input :field_type_id, :collection => FieldType.all, :label => "Type" %>
+    <%= f.input :field_type_id, :collection => FieldType.all, :label => "Type", :input_html => { id: "field#{field.id}_field_type_id"}, :label_html => { for: "field#{field.id}_field_type_id"} %>
   <td>
     <%= f.input :id, :as => :hidden %>
-    <%= f.input :event_id, :as => :hidden  %>
+    <%= f.input :event_id, :as => :hidden %>
     <%= f.input :field_order, :as => :hidden %>
   <td>
     <%= f.submit :submit, :class => "btn btn-primary",:value => "Lagre", :id => 'submit-field' %>  

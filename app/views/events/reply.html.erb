@@ -6,7 +6,7 @@
     <% if key.include? "hidden_"  %>
       <%= hidden_field_tag "field_id[#{key}]", value  %>
     <% else %>
-      <%= f.input key %>
+      <%= f.input key, label: @slug_label.fetch(key) %>
     <% end -%>
   <% end -%>
     <div class="form-actions">
@@ -14,5 +14,6 @@
       <%= link_to 'Avbryt', events_path(), :class => 'btn' %>
   </div>
 <% end -%>
+
 
 

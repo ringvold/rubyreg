@@ -1,4 +1,6 @@
 class RepliesController < ApplicationController
+  before_filter :require_login, :except => :create
+
   # GET /replies
   # GET /replies.json
   def index
@@ -49,10 +51,11 @@ class RepliesController < ApplicationController
       if @form.valid?
         reply = Reply.create(:event_id => params[:event_id])
         if reply.create_field_replies(params[:reply], params[:field_id])
-          format.html { redirect_to replies_event_path(@event), notice: 'Reply was successfully created.' }
+          format.html { redirect_to confirmation_event_path(@event) }
           format.json { render json: @form, status: :created, location: reply }
         end
       else
+        @slug_label = @event.slug_and_label
         format.html { render "events/reply", :locals => { :event => @event, :form => @form} }
         format.json { render json: @form.errors, status: :unprocessable_entity }
       end
@@ -88,7 +91,19 @@ class RepliesController < ApplicationController
     end
   end
 
-  def thanks
-    
+  def delete
+    # if params[:reply_ids].class.eql? Hash
+      params[:reply_ids].each do |reply|
+        @reply = Reply.find(reply)
+        @event = @reply.event unless @event
+        @reply.destroy
+      end
+    # end
+
+    respond_to do |format|
+      format.html { redirect_to replies_event_path(@event), :notice => "Replies deleted" }
+      format.json { head :no_content }
+    end
   end
+
 end

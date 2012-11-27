@@ -8,8 +8,8 @@ module ApplicationHelper
 	# end	
 
 	# Alternative method. Checks only action name.
-	def is_active?(page)
- 	   "active" if params[:controller] == page
+	def is_active?(controller, action)
+ 	   "active" if params[:controller] == controller and params[:action] == action
  	 end
 
 end

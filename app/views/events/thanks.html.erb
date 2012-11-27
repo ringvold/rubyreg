@@ -1,0 +1,7 @@
+<h1>Takk for din påmelding :)</h1>
+
+<% if @event.confirmation_message && !@event.confirmation_message.empty? %>
+	<%= @event.confirmation_message.html_safe %>
+<% else -%>
+	<p>Takk for din registrering!</p>
+<% end -%>

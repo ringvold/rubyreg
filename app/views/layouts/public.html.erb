@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rubyreg</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/redmond/jquery-ui.css">
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="container" class="container">
+	<h1>RubyReg</h1>
+	<% if notice != nil %>
+		<div class='alert alert-info'><%= notice %></div>
+	<% end %>
+	<% if alert != nil %>
+		<div class='alert alert-error'><%= alert %></div>
+	<% end %>
+
+	<%= yield %>
+
+
+</div><!-- /container -->
+</body>
+</html>

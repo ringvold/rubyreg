@@ -1,9 +1,7 @@
 require 'harar/naming'
 class ReplyForm
 	include ActiveAttr::Model
-
-
-	attr_accessor :name
+	extend Harar::Naming
 
 	def persisted?
 		false

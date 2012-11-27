@@ -6,6 +6,7 @@
     <%= f.input :end_date, :as => :string %>
     <%= f.input :max_att %>
     <%= f.input :description, :as => :text,  :input_html => { :class => 'wysiwyg',:rows => 10 } %>
+    <%= f.input :confirmation_message, :as => :text,  :input_html => { :class => 'wysiwyg',:rows => 10 } %>
     <input type="hidden" id="event_id" name="event_id" value="<%= @event.id %>">
     <div class="form-actions">
 	    <%= f.submit nil, :value => "Lagre", :class => 'btn btn-primary' %>

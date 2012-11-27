@@ -1,7 +1,8 @@
 class Event < ActiveRecord::Base
-  has_many :replies
+  belongs_to :event_type
+  has_many :replies, :dependent => :destroy
   has_many :field_replies, :through => :replies
-  has_many :fields
+  has_many :fields, :dependent => :destroy
 
   validates :title, :start_date, :end_date, :max_att, :presence => true
   validates :max_att, :numericality => true
@@ -10,6 +11,7 @@ class Event < ActiveRecord::Base
   scope :active_and_active_by_date, lambda {
     				active.where("start_date < ?", Date.today)
     				.where("end_date > ?", Date.today)}
+  scope :last, limit(5)
   
 #  def to_slug
 #    title.downcase.gsub(' ', '-')
@@ -27,20 +29,29 @@ class Event < ActiveRecord::Base
 
 	def create_form(params = nil)
 		form_maker = inline_form do |f|
-			fields_by_order.each do |field|
+      fields_by_order.each do |field|
         field_name_symbol = field.field_label.downcase
-        new_field = "f.attribute :#{field_name_symbol}"
-        new_field_id = "f.attribute :hidden_#{field_name_symbol}, default: #{field.id}"
-        eval(new_field)
-        eval(new_field_id)
-        # f.send(:attr_accessor, "hidden_#{field_name_symbol}")
-        # eval("f.hidden_#{field_name_symbol} = field.id")
+        new_field = "f.attribute '#{field.slug}'"
+        new_field_id = "f.attribute 'hidden_#{field.slug}', default: #{field.id}"
+        f.instance_eval { attribute "#{field.slug}"}
+        f.instance_eval { attribute "hidden_#{field.slug}", default: field.id}
+        # eval(new_field)
+        # eval(new_field_id)
+
         if field.required
-          eval("f.validates :#{field_name_symbol}, :presence => true")
+          eval("f.validates '#{field.slug}', :presence => true")
+        end
+        if field.field_type.field_type == "email"
+          eval("f.validates '#{field.slug}', :format => { :with => /^([-a-z0-9_]+\.?)+\@([-a-z0-9]+\.)+([a-z0-9]{2,4}$)/i }") # /^([-a-z0-9_]+\.?)+\@([-a-z0-9]+\.)+([a-z0-9]{2,4}$)/i
         end
 			end
 		end
 		form_maker.new(params)
 	end
   
+  def slug_and_label
+    slug_label = {}
+    fields.map {|f| slug_label[f.slug] = f.field_label}
+    slug_label
+  end
 end

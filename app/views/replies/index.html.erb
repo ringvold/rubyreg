@@ -11,12 +11,11 @@
 
 <% @events.each do |event| %>
     <tr>
-      <td><%= event.title %></td>
+      <td><%= link_to event.title, replies_event_path(event) %></td>
       <td><%= event.replies_count ? event.replies_count : 0  %>/<%= event.max_att %></td>
-      <td><%= link_to 'Show', replies_event_path(event), class: "btn btn-mini" %>
-        <%= link_to '<i class="icon-file"></i>'.html_safe, replies_event_path(event, format: "xls"), class: "btn btn-mini", title: "Eksporter til excel" %> 
+      <td><%= link_to 'Vis', replies_event_path(event), class: "btn btn-mini" %>
+        <%= link_to '<i class="icon-download-alt icon-large"></i>'.html_safe, replies_event_path(event, format: "xls"), class: "btn btn-mini", title: "Eksporter til excel" %>
       <%# link_to 'Export to csv', replies_event_path(event, format: "csv") %> </td>
-      <!-- <td><%# link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete %></td> -->
     </tr>
 <% end %>
 </table>

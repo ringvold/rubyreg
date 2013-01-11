@@ -3,17 +3,11 @@
 <%= simple_form_for @form, :html => { :class => 'form-horizontal' } do |f|%>
   <%= hidden_field_tag "event_id", @event.id %>
   <% @form.attributes.each do |key, value| %>
-    <% if key.include? "hidden_"  %>
-      <%= hidden_field_tag "field_id[#{key}]", value  %>
-    <% else %>
-      <%= f.input key, label: @slug_label.fetch(key) %>
-    <% end -%>
+      <%= f.input key, label: @slug_label.fetch(key.to_s) %>
+    <% #end -%>
   <% end -%>
     <div class="form-actions">
       <%= f.submit nil, :value => "Lagre", :class => 'btn btn-primary' %>
       <%= link_to 'Avbryt', events_path(), :class => 'btn' %>
   </div>
 <% end -%>
-
-
-

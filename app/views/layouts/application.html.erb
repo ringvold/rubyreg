@@ -49,12 +49,7 @@
 		</div>
 	</header>
 	<div id="content">
-		<% if notice != nil %>
-			<div class='alert alert-info'><%= notice %></div>
-		<% end %>
-		<% if alert != nil %>
-			<div class='alert alert-error'><%= alert %></div>
-		<% end %>
+		<%= render "layouts/alerts", locals: {notice => notice, alert => alert} %>
 
 		<%= yield %>
 	</div>

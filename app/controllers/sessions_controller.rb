@@ -1,6 +1,6 @@
 # encoding: utf-8
 class SessionsController < ApplicationController
-
+  layout "login"
   def new
   end
 
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to login_url, :notice => "Avlogget å!"
+    redirect_to login_url, :notice => "Avlogget!"
   end
 
 end

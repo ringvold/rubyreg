@@ -9,16 +9,15 @@ class Reply < ActiveRecord::Base
   scope :last, limit(5)
 
   def create_field_replies(reply, field_ids)
-  	transaction do
-  		save
-	  	reply.each do |key, value|
-	  		field_id = field_ids.fetch "hidden_#{key}".to_sym
-	  		if key.eql? :id
-	  		else
-	  			field_replies.create(:content => value, :field_id => field_id)
-	  		end
-	  	end
-	  end
+    transaction do
+      save
+      reply.each do |key, value|
+        if key.eql? :id
+        else
+          field_replies.create(:content => value, :field_id => key)
+        end
+      end
+    end
   end
 
   def self.to_csv(options = {})

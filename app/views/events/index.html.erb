@@ -12,9 +12,9 @@
 
 <% @events.each do |event| %>
   <tr>
-    <td><%= event.title %>
+    <td><%= link_to event.title, edit_event_path(event) %>
     <td><%= event.description %>
-    <td><%= event.max_att %>  
+    <td><%= event.max_att %>
     <td><%= event.start_date.strftime("%d. %b %Y") %> - <%= event.end_date.strftime("%d. %b %Y") %>
     <td>
       <%= link_to 'Rediger', edit_event_path(event), :class => 'btn btn-mini'%>

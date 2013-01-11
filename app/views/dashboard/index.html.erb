@@ -18,7 +18,7 @@
 									<%= reply.field_replies.map{|fr| fr.content}.join(", ") %>
 								</td>
 								<td>
-									<%= link_to reply.event.title, edit_event_path(reply.event) if reply.event %>	
+									<%= link_to reply.event.title, replies_event_path(reply.event) if reply.event %>	
 								</td>
 							</tr>
 						<% end -%>
@@ -43,7 +43,7 @@
 								<%= 	event.title %>
 							</td>
 							<td>
-								<%= link_to	"Påmeldte", replies_event_path(event), class: "btn btn-mini" %>
+								<%= link_to	"Rediger", edit_event_path(event), class: "btn btn-mini" %>
 							</td>
 						</tr>
 					<% end -%>

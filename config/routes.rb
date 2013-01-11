@@ -4,13 +4,13 @@ Rubyreg::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
 
-  match "/events/:id/updateOrder" => "events#updateOrder"
 
   get "/events/:id/reply" => "events#reply"
-  get "/event/:id/confirmation" => "events#thanks", as: "confirmation_event"
+  get "/events/:id/confirmation" => "events#thanks", as: "confirmation_event"
   post "/replies" => "replies#create", as: "new_reply"
 
   scope "/admin" do
+    match "/events/:id/updateOrder" => "events#updateOrder"
 
     get "dashboard" => "dashboard#index", :as => "dashboard"
     get "/" => "dashboard#index"
@@ -38,6 +38,6 @@ Rubyreg::Application.routes.draw do
   resources :sessions
 
 
-  root :to => 'public#index' 
+  root :to => 'public#index'
 end
 

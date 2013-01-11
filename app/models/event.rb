@@ -28,30 +28,24 @@ class Event < ActiveRecord::Base
 	end
 
 	def create_form(params = nil)
-		form_maker = inline_form do |f|
+    form_maker = inline_form do |f|
       fields_by_order.each do |field|
         field_name_symbol = field.field_label.downcase
-        new_field = "f.attribute '#{field.slug}'"
-        new_field_id = "f.attribute 'hidden_#{field.slug}', default: #{field.id}"
-        f.instance_eval { attribute "#{field.slug}"}
-        f.instance_eval { attribute "hidden_#{field.slug}", default: field.id}
-        # eval(new_field)
-        # eval(new_field_id)
-
+        f.instance_eval { attribute "#{field.id}"}
         if field.required
-          eval("f.validates '#{field.slug}', :presence => true")
+          eval("f.validates '#{field.id}', :presence => true")
         end
         if field.field_type.field_type == "email"
-          eval("f.validates '#{field.slug}', :format => { :with => /^([-a-z0-9_]+\.?)+\@([-a-z0-9]+\.)+([a-z0-9]{2,4}$)/i }") # /^([-a-z0-9_]+\.?)+\@([-a-z0-9]+\.)+([a-z0-9]{2,4}$)/i
+          eval("f.validates '#{field.id}', :format => { :with => /^([-a-z0-9_]+\.?)+\@([-a-z0-9]+\.)+([a-z0-9]{2,4}$)/i }") # /^([-a-z0-9_]+\.?)+\@([-a-z0-9]+\.)+([a-z0-9]{2,4}$)/i
         end
-			end
-		end
-		form_maker.new(params)
-	end
+      end
+    end
+    form_maker.new(params)
+  end
   
   def slug_and_label
     slug_label = {}
-    fields.map {|f| slug_label[f.slug] = f.field_label}
+    fields.map {|f| slug_label[f.id.to_s] = f.field_label}
     slug_label
   end
 end

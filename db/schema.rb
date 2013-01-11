@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121127134008) do
+ActiveRecord::Schema.define(:version => 20121203184716) do
 
   create_table "event_types", :force => true do |t|
     t.string   "name",       :null => false
@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(:version => 20121127134008) do
     t.datetime "updated_at"
   end
 
+  add_index "field_replies", ["field_id"], :name => "index_field_replies_on_field_id"
+  add_index "field_replies", ["reply_id"], :name => "index_field_replies_on_reply_id"
+
   create_table "field_types", :force => true do |t|
     t.string   "title",      :null => false
     t.string   "field_type", :null => false
@@ -59,11 +62,16 @@ ActiveRecord::Schema.define(:version => 20121127134008) do
     t.string   "slug"
   end
 
+  add_index "fields", ["event_id"], :name => "index_fields_on_event_id"
+  add_index "fields", ["field_type_id"], :name => "index_fields_on_field_type_id"
+
   create_table "replies", :force => true do |t|
     t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "replies", ["event_id"], :name => "index_replies_on_event_id"
 
   create_table "users", :force => true do |t|
     t.string   "username",                                             :null => false

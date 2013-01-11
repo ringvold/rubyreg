@@ -1,18 +1,10 @@
-<%= form_tag sessions_path, :class => "form-horizontal" do %>
-  <div class="control-group">
-    <%= label_tag :username, "Brukernavn" %>
-    <div id="" class="controls">
-      
-    </div><!-- / -->
-    <%= text_field_tag :username, params[:username] %>
-  </div>
-  <div class="field">
-    <%= label_tag :password, "Passord" %>
-    <%= password_field_tag :password %>
-  </div>
-  <div class="field">
+<%= form_tag sessions_path, :class => "form-horizontal form-signin" do %>
+  <h2 class="form-signin-heading">Vennligst logg inn</h2>
+  <%= text_field_tag :username, params[:username], class: "input-block-level", placeholder: "Email" %>
+  <%= password_field_tag :password, class: "input-block-level", placeholder: "Passord" %>
+  <label for="remember_me" class="checkbox">
     <%= check_box_tag :remember_me, 1, params[:remember_me] %>
-    <%= label_tag :remember_me, "Husk meg" %>
-  </div>
-  <div class="actions"><%= submit_tag "Logg inn", :class => "btn btn-primary" %></div>
+    <%= label_tag :remember_me, "Husk meg"  %>
+  </label>
+  <%= submit_tag "Logg inn", :class => "btn btn-primary" %>
 <% end %>

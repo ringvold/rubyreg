@@ -25,8 +25,6 @@ GEM
       activesupport (= 3.2.0)
       arel (~> 3.0.0)
       tzinfo (~> 0.3.29)
-    activerecord-postgresql-adapter (0.0.1)
-      pg
     activeresource (3.2.0)
       activemodel (= 3.2.0)
       activesupport (= 3.2.0)
@@ -226,7 +224,6 @@ PLATFORMS
 
 DEPENDENCIES
   active_attr
-  activerecord-postgresql-adapter
   bcrypt-ruby
   cancan
   capistrano
@@ -237,6 +234,7 @@ DEPENDENCIES
   guard-rspec
   jquery-rails
   less-rails
+  pg
   rails (= 3.2.0)
   rspec-rails
   sass-rails (~> 3.2.3)

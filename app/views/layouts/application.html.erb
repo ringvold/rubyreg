@@ -28,13 +28,13 @@
 					    <%= link_to "Dashboard", dashboard_path %>
 					  </li>
 					  <li class="<%= is_active?("events", "index")%>" >
-					    <%= link_to "Events", events_path %>
+					    <%= link_to Event.model_name.human(:count => 2), events_path %>
 					  </li>
 					  <li class="<%= is_active?("replies", "index")%>">
-					  	<%= link_to "Påmeldte", replies_path %>
+					  	<%= link_to Reply.model_name.human(:count => 2), replies_path %>
 					  </li>
 					  <li class="<%= is_active?("users", "index")%>">
-					  	<%= link_to "Brukere", users_path %>
+					  	<%= link_to User.model_name.human(:count => 2), users_path %>
 					  </li>
 					  <% #end %>
 					</ul>

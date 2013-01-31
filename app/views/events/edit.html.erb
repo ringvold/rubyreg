@@ -1,18 +1,18 @@
-<h1><%= @event.title %> <small class="toggle-basic">Rediger info</small></h1> 
+<h1><%= @event.title %> <small class="toggle-basic">Rediger info</small></h1>
 	<div class="edit-form">
 		<%= render 'form' %>
 	</div>
 
 <div class="fields-container">
-	<h2>Rediger felt</h2>
+	<h2><%= t(:edit) %> <%= Field.model_name.human.downcase %></h2>
 
 	<%= render "add_element" %>
 
 	<ol id="fields" >
-	
+
 		<% if @event.fields == nil  %>
 
-			<p class="well">Det er ikke laget noen felt enda.</p>
+			<p class="well"><%= t ".no_fields" %></p>
 
 		<% else %>
 

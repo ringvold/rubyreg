@@ -1,32 +1,32 @@
-<h1><%= @event.title %> påmeldte</h1>
-<%= form_tag "/admin/replies/delete" do %>
-<table class="table table-striped">
-  <thead>
-    <th class="action-checkbox"><%= check_box_tag "select_all", "", false, :id => "select_all"  %></th>
-    <% @event.fields_by_order.each do |f| %>
-      <th><%= f.field_label %></th>
-    <% end -%>
-    <th>Handlinger</th>
-  </thead>
-  <tbody>
-    
-  <% @replies.each do |reply| %>
-    <tr>
-      <td class="action-checkbox"><%= check_box_tag "reply_ids[]", reply.id %></td>
-    <% reply.field_replies_all.each do |fr| %>
-      <td><%= fr.content %></td>
-    <% end -%>
-      <td><%# link_to 'Show', reply %>  
-      <%# link_to 'Edit', edit_reply_path(reply) %> 
-      <%= link_to 'Destroy', reply, class: "btn btn-mini btn-danger", confirm: 'Are you sure?', method: :delete %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-<button class="btn">Delete</button>
-<!-- </form> -->
+<h1><%= @event.title %> <%= t(:participants).downcase %></h1>
+<% if @replies.size == 0 %>
+  <p><%= t(".no_replies") %></p>
+<% else %>
+  <%= form_tag "/admin/replies/delete" do %>
+  <table class="table table-striped">
+    <thead>
+      <th class="action-checkbox"><%= check_box_tag "select_all", "", false, :id => "select_all"  %></th>
+      <% @event.fields_by_order.each do |f| %>
+        <th><%= f.field_label %></th>
+      <% end -%>
+      <th>Handlinger</th>
+    </thead>
+    <tbody>
+
+    <% @replies.each do |reply| %>
+      <tr>
+        <td class="action-checkbox"><%= check_box_tag "reply_ids[]", reply.id %></td>
+      <% reply.field_replies_all.each do |fr| %>
+        <td><%= fr.content %></td>
+      <% end -%>
+        <td><%# link_to 'Show', reply %>
+        <%# link_to 'Edit', edit_reply_path(reply) %>
+        <%= link_to t(:delete), reply, class: "btn btn-mini btn-danger", confirm: t(:delete_confirm), method: :delete %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <button class="btn"><%= t(".delete_chosen") %></button>
+  <!-- </form> -->
+  <% end -%>
 <% end -%>
-
-<br />
-
-<%#= link_to 'New Reply', new_reply_path %>

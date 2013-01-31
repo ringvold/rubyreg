@@ -1,0 +1,88 @@
+nb:
+  save: 'Lagre'
+  cancel: 'Avbryt'
+  edit: 'Rediger'
+  delete: 'Slett'
+  show: 'Vis'
+  actions: 'Handlinger'
+  delete_confirm: 'Er du sikker?'
+  new: "Ny"
+  new_model: "Ny %{model}"
+  participants: "Påmeldte"
+  replies:
+    index:
+      participants: "Påmeldte"
+      export: "Eksporter til excel"
+  events:
+    replies:
+      no_replies: "Ingen registrerte enda."
+      delete_chosen: "Slett valgte"
+
+  dashboard:
+    index:
+      last_replies: "Siste påmeldte"
+      last_events: "Siste påmeldinger"
+  events:
+    edit:
+      no_fields: "Det er ikke laget noen felt enda."
+
+  views:
+      pagination:
+        previous: "«"
+        next: "»"
+        truncate: "..."
+  activerecord:
+    errors:
+      template:
+        header: "Kunne ikke lagre %{model} på grunn av %{count} feil."
+        body: "Det oppstod problemer i følgende felt:"
+      messages:
+        inclusion: "er ikke inkludert i listen"
+        exclusion: "er reservert"
+        invalid: "er ugyldig"
+        confirmation: "passer ikke bekreftelsen"
+        accepted: "må være akseptert"
+        empty: "må angis"
+        blank: "må angis"
+        too_long: "er for lang (maksimum %{count} tegn)"
+        too_short: "er for kort (minimum %{count} tegn)"
+        wrong_length: "er av feil lengde (maksimum %{count} tegn)"
+        taken: "er allerede i bruk"
+        not_a_number: "er ikke et tall"
+        greater_than: "må være større enn %{count}"
+        greater_than_or_equal_to: "må være større enn eller lik %{count}"
+        equal_to: "må være lik %{count}"
+        less_than: "må være mindre enn %{count}"
+        less_than_or_equal_to: "må være mindre enn eller lik %{count}"
+        odd: "må være oddetall"
+        even: "må være partall"
+    models:
+      event:
+        one: "Påmelding"
+        plural: "Påmeldinger"
+        other: "Påmeldinger"
+      field:
+        one: "Felt"
+        plural: "Felt"
+        other: "Felt"
+      user:
+        one: "Bruker"
+        plural: "Brukere"
+        other: "Brukere"
+      reply:
+        one: "Påmeldt"
+        plural: "Påmeldte"
+        other: "Påmeldte"
+    attributes:
+      event:
+        title: "Tittel"
+        start_date: "Startdato"
+        end_date: "Sluttdato"
+        max_att: "Plasser"
+        description: "Beskrivelse"
+        confirmation_message: "Kvitteringsmelding"
+      user:
+        name: "Navn"
+        email: "Epost"
+        password: "Passord"
+        role: "Rolle"

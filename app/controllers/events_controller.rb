@@ -98,8 +98,11 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @replies }
-      # format.csv { send_data @replies.to_csv }
-      format.xls
+      format.csv { send_data @replies.to_csv }
+      format.xls do
+        headers["Content-Disposition"] = "attachment; filename=\"#{@event.title} #{Date.today}.xls\""
+        render "replies.xls"
+      end
     end
   end
 

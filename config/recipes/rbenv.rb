@@ -1,4 +1,4 @@
-set_default :ruby_version, "1.9.3-p125"
+set_default :ruby_version, "1.9.3-p194"
 set_default :rbenv_bootstrap, "bootstrap-ubuntu-10-04"
 
 namespace :rbenv do
@@ -7,9 +7,9 @@ namespace :rbenv do
     run "#{sudo} apt-get -y install curl git-core"
     run "curl -L https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash"
     bashrc = <<-BASHRC
-if [ -d $HOME/.rbenv ]; then 
-  export PATH="$HOME/.rbenv/bin:$PATH" 
-  eval "$(rbenv init -)" 
+if [ -d $HOME/.rbenv ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
 fi
 BASHRC
     put bashrc, "/tmp/rbenvrc"

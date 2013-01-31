@@ -6,7 +6,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create :username => "harald", :email => "harald@ringvold.nu", :role => "admin", :password => "test"
+User.create :email => "admin@test.com", :role => "admin", :password => "admin"
 FieldType.all.each { |f|f.delete}
 FieldType.create :title => "Tekst", :field_type => "string"
 FieldType.create :title => "Checkbox", :field_type => "boolean"

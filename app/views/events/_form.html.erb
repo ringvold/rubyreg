@@ -1,5 +1,5 @@
-<%= simple_form_for @event, 
-  :html => { :class => 'form-horizontal' }, 
+<%= simple_form_for @event,
+  :html => { :class => 'form-horizontal' },
   :validate => true do |f| %>
     <%= f.input :title %>
     <%= f.input :start_date, :as => :string %>
@@ -9,8 +9,8 @@
     <%= f.input :confirmation_message, :as => :text,  :input_html => { :class => 'wysiwyg',:rows => 10 } %>
     <input type="hidden" id="event_id" name="event_id" value="<%= @event.id %>">
     <div class="form-actions">
-	    <%= f.submit nil, :value => "Lagre", :class => 'btn btn-primary' %>
-	    <%= link_to 'Avbryt', events_path(), :class => 'btn' %>
+	    <%= f.submit nil, :value => t(:save), :class => 'btn btn-primary' %>
+	    <%= link_to t(:cancel), events_path(), :class => 'btn' %>
   </div>
 <% end %>
 

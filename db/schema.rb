@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(:version => 20121203184716) do
 
   create_table "event_types", :force => true do |t|
     t.string   "name",       :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "events", :force => true do |t|
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(:version => 20121203184716) do
     t.date     "end_date",             :null => false
     t.integer  "max_att",              :null => false
     t.boolean  "active"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.integer  "replies_count"
     t.text     "confirmation_message"
   end
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(:version => 20121203184716) do
     t.integer  "field_id"
     t.integer  "reply_id"
     t.string   "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "field_replies", ["field_id"], :name => "index_field_replies_on_field_id"
@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(:version => 20121203184716) do
   create_table "field_types", :force => true do |t|
     t.string   "title",      :null => false
     t.string   "field_type", :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "fields", :force => true do |t|
@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(:version => 20121203184716) do
     t.boolean  "required",      :null => false
     t.integer  "event_id",      :null => false
     t.integer  "field_type_id", :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "slug"
   end
 
@@ -67,21 +67,20 @@ ActiveRecord::Schema.define(:version => 20121203184716) do
 
   create_table "replies", :force => true do |t|
     t.integer  "event_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "replies", ["event_id"], :name => "index_replies_on_event_id"
 
   create_table "users", :force => true do |t|
-    t.string   "username",                                             :null => false
-    t.string   "email"
+    t.string   "email",                                                :null => false
     t.string   "crypted_password"
     t.string   "salt"
     t.string   "role",                            :default => "admin"
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                           :null => false
+    t.datetime "updated_at",                                           :null => false
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
     t.string   "reset_password_token"

@@ -36,6 +36,10 @@ gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+group :development do
+  gem 'better_errors'
+  gem "binding_of_caller"
+end
 
 gem 'rspec-rails', :group =>   [:test, :development]
 group :test do

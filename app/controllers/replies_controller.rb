@@ -4,7 +4,7 @@ class RepliesController < ApplicationController
   # GET /replies
   # GET /replies.json
   def index
-    @events = Event.all
+    @events = Event.scoped.order("created_at ASC")
 
     respond_to do |format|
       format.html # index.html.erb

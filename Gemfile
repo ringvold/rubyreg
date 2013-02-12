@@ -6,12 +6,14 @@ gem 'rails', '3.2.0'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 # gem 'sqlite3', '~> 1.3.4'
-gem 'activerecord-postgresql-adapter'
+gem 'pg'
+# gem 'activerecord-postgresql-adapter'
 gem 'simple_form'
 gem 'sorcery'
 gem 'cancan'
 gem 'active_attr'
 gem 'stringex'
+gem 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -34,6 +36,10 @@ gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+group :development do
+  gem 'better_errors'
+  gem "binding_of_caller"
+end
 
 gem 'rspec-rails', :group =>   [:test, :development]
 group :test do

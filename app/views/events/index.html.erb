@@ -3,11 +3,11 @@
 
 <table class="table table-striped" >
   <tr>
-    <th>Tittel
-    <th>Beskrivelse
-    <th>Plasser
-    <th>Påmeldingsvindu
-    <th>
+    <th><%= Event.human_attribute_name("title") %>
+    <th><%= Event.human_attribute_name("description") %>
+    <th><%= Event.human_attribute_name("max_att") %>
+    <th><%= t :enrollment_window %>
+    <th><%= t :actions %>
   </tr>
 
 <% @events.each do |event| %>
@@ -17,9 +17,9 @@
     <td><%= event.max_att %>
     <td><%= event.start_date.strftime("%d. %b %Y") %> - <%= event.end_date.strftime("%d. %b %Y") %>
     <td>
-      <%= link_to 'Rediger', edit_event_path(event), :class => 'btn btn-mini'%>
-      <%= link_to 'Slett', event, confirm: 'Er du sikker?', method: :delete,  :remote => true, :class => 'btn btn-mini btn-danger' %>
+      <%= link_to t(:edit), edit_event_path(event), :class => 'btn btn-mini'%>
+      <%= link_to t(:delete), event, confirm: t(:delete_confirm), method: :delete,  :remote => true, :class => 'btn btn-mini btn-danger' %>
   </tr>
 <% end %>
 </table>
-<%= link_to 'Ny påmelding', new_event_path, :class => 'btn btn-primary' %>
+<%= link_to t(:new_model, model: Event.model_name.human.downcase), new_event_path, :class => 'btn btn-primary' %>

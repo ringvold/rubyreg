@@ -9,6 +9,9 @@ nb:
   new: "Ny"
   new_model: "Ny %{model}"
   participants: "Påmeldte"
+
+  enrollment_window: "Påmeldingsvindu"
+
   replies:
     index:
       participants: "Påmeldte"
@@ -20,6 +23,7 @@ nb:
 
   dashboard:
     index:
+      dashboard: "Dashboard"
       last_replies: "Siste påmeldte"
       last_events: "Siste påmeldinger"
   events:

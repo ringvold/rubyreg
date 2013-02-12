@@ -114,6 +114,13 @@ class EventsController < ApplicationController
     render :layout => "public"
   end
 
+  def embed
+    @event = Event.find(params[:id])
+
+    respond_to do |format|
+      format.js
+    end
+  end
 
   def thanks
     @event = Event.find(params[:id])

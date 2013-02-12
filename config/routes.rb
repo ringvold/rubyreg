@@ -8,6 +8,7 @@ Rubyreg::Application.routes.draw do
   get "/events/:id/reply" => "events#reply"
   get "/events/:id/confirmation" => "events#thanks", as: "confirmation_event"
   post "/replies" => "replies#create", as: "new_reply"
+  match "/replies/remote_create" => "replies#remote_create", as: "remote_create_reply"
 
   scope "/admin" do
     match "/events/:id/updateOrder" => "events#updateOrder"
@@ -30,6 +31,7 @@ Rubyreg::Application.routes.draw do
       member do
         get "reply"
         get "replies"
+        get "embed"
       end
     end
   end

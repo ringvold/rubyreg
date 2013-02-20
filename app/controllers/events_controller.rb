@@ -118,6 +118,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     respond_to do |format|
+      format.html
       format.js
     end
   end

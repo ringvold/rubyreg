@@ -18,6 +18,7 @@
     <td><%= event.start_date.strftime("%d. %b %Y") %> - <%= event.end_date.strftime("%d. %b %Y") %>
     <td>
       <%= link_to t(:edit), edit_event_path(event), :class => 'btn btn-mini'%>
+      <%= link_to 'Embed', embed_event_path(event), :class => 'btn btn-mini'%>
       <%= link_to t(:delete), event, confirm: t(:delete_confirm), method: :delete,  :remote => true, :class => 'btn btn-mini btn-danger' %>
   </tr>
 <% end %>

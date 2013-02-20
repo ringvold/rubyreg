@@ -78,6 +78,30 @@ class RepliesController < ApplicationController
     end
   end
 
+  def remote_create
+    @event = Event.find(params[:event_id])
+    # @reply = Reply.new(params[:reply])
+    @form  = @event.create_form(params[:reply])
+
+    puts Array params[:reply]
+    headers['Access-Control-Allow-Origin'] = "*"
+
+    puts Array params[:field_id]
+    respond_to do |format|
+      if @form.valid?
+        reply = Reply.create(:event_id => params[:event_id])
+        if reply.create_field_replies(params[:reply], params[:field_id])
+          format.html { redirect_to confirmation_event_path(@event) }
+          format.json { render json: @form, :callback => params[:callback], status: :created, location: reply }
+        end
+      else
+        @slug_label = @event.slug_and_label
+        format.html { render "events/reply", :locals => { :event => @event, :form => @form} }
+        format.json { render json: @form.errors, :callback => params[:callback], status: :unprocessable_entity }
+      end
+    end
+  end
+
   # DELETE /replies/1
   # DELETE /replies/1.json
   def destroy

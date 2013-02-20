@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121203184716) do
+ActiveRecord::Schema.define(:version => 20130220232606) do
 
   create_table "event_types", :force => true do |t|
     t.string   "name",       :null => false
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20121203184716) do
     t.datetime "updated_at",           :null => false
     t.integer  "replies_count"
     t.text     "confirmation_message"
+    t.string   "code"
   end
 
   create_table "field_replies", :force => true do |t|

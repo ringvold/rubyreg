@@ -1,0 +1,48 @@
+<h1>Embed</h1>
+
+<!-- <pre class="embedcode embedhtml">
+  <%#= "<script id='vender-event-reply-#{@event.code}' src='#{embed_url(@event.code, :js)}' type='text/javascript'></script>" %>
+</pre> -->
+
+<p>For utvilkere. Kun javascript</p>
+<pre class="embedcode embedjs">
+  var data = {
+    'event_id': <%= @event.id %>,
+  <%
+    fields = @event.fields_by_order
+    size = fields.size
+    i = 1
+  %>
+  <% @event.fields_by_order.each do |f| %>
+    <% if i < size  %>
+    'reply[<%= f.id %>]': 'INPUT_DATA',
+    <% else -%>
+    'reply[<%= f.id %>]': 'INPUT_DATA'
+    <% end -%>
+    <% i += 1  %>
+  <% end -%>
+  }
+
+  var result = $.ajax({
+    type: 'POST',
+    url: "<%= remote_create_reply_url  %>.json?callback=?",
+    data: data,
+    dataType: "jsonp"
+  });
+
+  result.fail(function(data){
+    // callback for fail
+    // example code:
+    // console.log("FAIL");
+    // console.log(data);
+    // $("FEEDBACK_WRAPPER").html("Noe gikk galt. Vennligst prøv på nytt senere.")
+  });
+  result.done(function(data){
+    // callback for success
+    // example code:
+    // console.log("SUCCESS");
+    // console.log(data);
+    // $("FEEDBACK_WRAPPER").html("Din påmelding ble registert.")
+
+  });
+</pre>

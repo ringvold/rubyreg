@@ -1,7 +1,7 @@
 <%= form_tag sessions_path, :class => "form-horizontal form-signin" do %>
   <h2 class="form-signin-heading">Vennligst logg inn</h2>
-  <%= text_field_tag :username, params[:username], class: "input-block-level", placeholder: "Email" %>
-  <%= password_field_tag :password, class: "input-block-level", placeholder: "Passord" %>
+  <%= text_field_tag :email, params[:username], :class => "input-block-level", :placeholder => "Email" %>
+  <%= password_field_tag :password, :class => "input-block-level", :placeholder => "Passord" %>
   <label for="remember_me" class="checkbox">
     <%= check_box_tag :remember_me, 1, params[:remember_me] %>
     <%= label_tag :remember_me, "Husk meg"  %>

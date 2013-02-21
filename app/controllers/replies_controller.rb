@@ -1,5 +1,5 @@
 class RepliesController < ApplicationController
-  before_filter :require_login, :except => :create, :remote_create
+  before_filter :require_login, :except => [:create, :remote_create]
 
   # GET /replies
   # GET /replies.json

@@ -1,5 +1,5 @@
 class RepliesController < ApplicationController
-  before_filter :require_login, :except => :create
+  before_filter :require_login, :except => :create, :remote_create
 
   # GET /replies
   # GET /replies.json
@@ -83,10 +83,10 @@ class RepliesController < ApplicationController
     # @reply = Reply.new(params[:reply])
     @form  = @event.create_form(params[:reply])
 
-    puts Array params[:reply]
+    # puts Array params[:reply]
     headers['Access-Control-Allow-Origin'] = "*"
 
-    puts Array params[:field_id]
+    # puts Array params[:field_id]
     respond_to do |format|
       if @form.valid?
         reply = Reply.create(:event_id => params[:event_id])
@@ -96,6 +96,7 @@ class RepliesController < ApplicationController
         end
       else
         @slug_label = @event.slug_and_label
+        puts Array @form.errors
         format.html { render "events/reply", :locals => { :event => @event, :form => @form} }
         format.json { render json: @form.errors, :callback => params[:callback], status: :unprocessable_entity }
       end

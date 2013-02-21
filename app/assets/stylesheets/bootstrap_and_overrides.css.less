@@ -31,8 +31,23 @@
 // Example:
 // @linkColor: #ff0000;
 
-div.wysiwyg { 
-	.border-radius(4px);	
+div.wysiwyg {
+	.border-radius(4px);
 }
 
 #fields .ui-state-highlight { .well; }
+
+.table tbody tr {
+  &.success > td {
+    background-color: @successBackground;
+  }
+  &.error > td {
+    background-color: @errorBackground;
+  }
+  &.warning > td {
+    background-color: @warningBackground;
+  }
+  &.info > td {
+    background-color: @infoBackground;
+  }
+}

@@ -36,83 +36,83 @@ jQuery ->
 
   #### Edit Event ####
 
-  # Delete field
-  $("#fields").on "click", ".delete-field", (e)->
-    e.preventDefault()
-    answer = confirm("Er du sikker?")
-    if answer
-      deleteField(this)
+  # # Delete field
+  # $("#fields").on "click", ".delete-field", (e)->
+  #   e.preventDefault()
+  #   answer = confirm("Er du sikker?")
+  #   if answer
+  #     deleteField(this)
 
-    return false
+  #   return false
 
-  # New field
-  $(".fields-container").on "click", ".add-field", ->
-    fields = $("#fields")
-    result = $.ajax
-      type: "GET",
-      url: "/admin/events/#{event_id}/fields/new.json"
+  # # New field
+  # $(".fields-container").on "click", ".add-field", ->
+  #   fields = $("#fields")
+  #   result = $.ajax
+  #     type: "GET",
+  #     url: "/admin/events/#{event_id}/fields/new.json"
 
-    result.done (msg) ->
-      fields.append(msg.html)
+  #   result.done (msg) ->
+  #     fields.append(msg.html)
 
-      updateOrder()
-      removeLinks()
+  #     updateOrder()
+  #     removeLinks()
 
-    result.fail (msg) ->
-      console.log(msg)
-      alert("Noe gikk galt!")
+  #   result.fail (msg) ->
+  #     console.log(msg)
+  #     alert("Noe gikk galt!")
 
 
-  # Save field
-  $("#fields").on "submit", "form", (e) ->
-    e.preventDefault()
-    # console.log(e.currentTarget)
-    form = $(e.currentTarget)
-    form_action = form.attr("action")
-    li = form.closest("li")
-    console.log form_action
-    field_id_el = li.find("#field_id")
-    console.log field_id_el
-    li_id = li.attr("id")
+  # # Save field
+  # $("#fields").on "submit", "form", (e) ->
+  #   e.preventDefault()
+  #   # console.log(e.currentTarget)
+  #   form = $(e.currentTarget)
+  #   form_action = form.attr("action")
+  #   li = form.closest("li")
+  #   console.log form_action
+  #   field_id_el = li.find("#field_id")
+  #   console.log field_id_el
+  #   li_id = li.attr("id")
 
-    values_to_submit = form.serialize()
-    # console.log(values_to_submit)
+  #   values_to_submit = form.serialize()
+  #   # console.log(values_to_submit)
 
-    if form.hasClass "new_field"
-      # create field
-      result = $.ajax
-        url: form.attr('action'),
-        type: "POST",
-        dataType: "json",
-        data: values_to_submit
+  #   if form.hasClass "new_field"
+  #     # create field
+  #     result = $.ajax
+  #       url: form.attr('action'),
+  #       type: "POST",
+  #       dataType: "json",
+  #       data: values_to_submit
 
-    else
-      field_id = field_id_el.attr("value")
-      console.log field_id
-      # update field
-      result = $.ajax
-        url: if form.hasClass "new_field" then form_action+"/"+field_id else form_action,
-        type: "PUT",
-        dataType: "json",
-        data: values_to_submit
+  #   else
+  #     field_id = field_id_el.attr("value")
+  #     console.log field_id
+  #     # update field
+  #     result = $.ajax
+  #       url: if form.hasClass "new_field" then form_action+"/"+field_id else form_action,
+  #       type: "PUT",
+  #       dataType: "json",
+  #       data: values_to_submit
 
-    if result
-      result.done (field) ->
-        console.log(field)
-        saveSuccess(form,field)
-        console.log("success")
-        if field
-          field_id_el.attr("value", field.id)
-          li.attr("id", field.id)
+  #   if result
+  #     result.done (field) ->
+  #       console.log(field)
+  #       saveSuccess(form,field)
+  #       console.log("success")
+  #       if field
+  #         field_id_el.attr("value", field.id)
+  #         li.attr("id", field.id)
 
-      result.fail (data) ->
-        console.log(data)
-        console.log("FAIL")
-        errors = JSON.parse(data.responseText)
-        console.log(data["0"])
+  #     result.fail (data) ->
+  #       console.log(data)
+  #       console.log("FAIL")
+  #       errors = JSON.parse(data.responseText)
+  #       console.log(data["0"])
 
-        saveFail(form,data)
-        alert("Tittel " + errors.field_label[0]) if errors.field_label
+  #       saveFail(form,data)
+  #       alert("Tittel " + errors.field_label[0]) if errors.field_label
 
 
 
@@ -196,7 +196,7 @@ fixHelper = (e, ui) ->
 # JSify buttons
 # Remove default rails href and data values
 removeLinks = ->
-  $('.add-field').attr('href', '#add-field')
+  # $('.add-field').attr('href', '#add-field')
   # $('.delete-field').attr('href', '#delete-field')
   # $('.delete-field').attr("data-method", '')
   # $('.delete-field').attr("data-confirm", '')

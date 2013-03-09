@@ -1,6 +1,7 @@
+require 'securerandom'
 class FieldsController < ApplicationController
   before_filter(:get_event)
-  
+
   # GET /events/1/fields
   # GET /events/1/fields.json
   def index
@@ -27,10 +28,11 @@ class FieldsController < ApplicationController
   # GET /events/1/events/1/fields/new.json
   def new
     @field = @event.fields.new
-
+		@rand_id = SecureRandom.hex(2)
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render :parial => "new", :status => 200 }
+      # format.json { render :json => render( :template => "events/_field_form",  :formats=>[:html], :handlers=>[:erb],:locals => {:event => @event, :field => @field }), :status => 200 }
+      format.js { render :parial => "new", :status => 200 }
     end
   end
 
@@ -43,11 +45,12 @@ class FieldsController < ApplicationController
   # POST /events/1/fields.json
   def create
     @field = @event.fields.new(params[:field])
-
+    @element_id = params[:extra][:element_id]
     respond_to do |format|
       if @field.save
         format.html { redirect_to edit_event_path(@event), notice: 'Field was successfully created.' }
         format.json { render json: @field, status: :created, location: [@event,@field] }
+        format.js { render action: "create" }
       else
         format.html { render action: "new" }
         format.json { render json: @field.errors, status: :unprocessable_entity }
@@ -64,6 +67,7 @@ class FieldsController < ApplicationController
       if @field.update_attributes(params[:field])
         format.html { redirect_to edit_event_path(@event), notice: 'Field was successfully updated.' }
         format.json { head :no_content }
+        format.js { render "update" }
       else
         format.html { render action: "edit" }
         format.json { render json: @field.errors, status: :unprocessable_entity }
@@ -80,6 +84,7 @@ class FieldsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to edit_event_path(@event), notice: 'Feltet ble slettet.' }
       format.json { head :no_content }
+      format.js { render "destroy" }
     end
   end
 end

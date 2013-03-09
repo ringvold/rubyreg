@@ -1,24 +1,25 @@
-<li class="field" id="field<%= field.id %>">
+<li class="field" id="field<%= field.id || rand_id %>">
 <table  >
 	<tr>
-
-<%= simple_form_for [@event, field], :wrapper => :default, :validate => true do |f| %>
-  <%= f.error_notification %>
-
-  <td>
-    <%= f.input :field_label, :label => "Tittel", :input_html => { id: "field#{field.id}_field_label"}, :label_html => { for: "field#{field.id}_field_label"} %>
-  <td>
-    <%= f.input :required, :label => "Må utfylles", :input_html => { id: "field#{field.id}_required"}, :label_html => { for: "field#{field.id}_required"} %>
-  <td>
-    <%= f.input :field_type_id, :collection => FieldType.all, :label => "Type", :input_html => { id: "field#{field.id}_field_type_id"}, :label_html => { for: "field#{field.id}_field_type_id"} %>
-  <td>
-    <%= f.input :id, :as => :hidden %>
-    <%= f.input :event_id, :as => :hidden %>
-    <%= f.input :field_order, :as => :hidden %>
-  <td>
-    <%= f.submit :submit, :class => "btn btn-primary",:value => "Lagre", :id => 'submit-field' %>
-    <%= link_to 'Slett', [@event,field], confirm: t(:delete_confirm), method: :delete, :class => 'btn btn-danger delete-field', :id => 'delete-field'  %>
-<% end %>
+    <%= simple_form_for [@event, field], :wrapper => :default, :remote => true, :validate => true do |f| %>
+      <%= f.error_notification %>
+      <% if rand_id %>
+        <%= hidden_field :extra, :element_id ,:value => rand_id %>
+      <% end -%>
+      <td>
+        <%= f.input :field_label, :label => "Tittel", :input_html => { id: "field#{field.id || rand_id}_field_label"}, :label_html => { for: "field#{field.id || rand_id}_field_label"} %>
+      <td>
+        <%= f.input :required, :label => "Må utfylles", :input_html => { id: "field#{field.id || rand_id}_required"}, :label_html => { for: "field#{field.id || rand_id}_required"} %>
+      <td>
+        <%= f.input :field_type_id, :collection => FieldType.all, :label => "Type", :input_html => { id: "field#{field.id || rand_id}_field_type_id"}, :label_html => { for: "field#{field.id || rand_id}_field_type_id"} %>
+      <td>
+        <%= f.input :id, :as => :hidden %>
+        <%= f.input :event_id, :as => :hidden %>
+        <%= f.input :field_order, :as => :hidden %>
+      <td>
+        <%= f.submit :submit, :class => "btn btn-primary",:value => "Lagre", :id => 'submit-field', :remote => true %>
+        <%= link_to 'Slett', [@event,field], confirm: t(:delete_confirm), method: :delete, :class => 'btn btn-danger delete-field', :id => 'delete-field', :remote => true  %>
+    <% end %>
 	</tr>
 </table>
 </li>

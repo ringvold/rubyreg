@@ -1,6 +1,7 @@
-$("#field<%= @element_id %>").replaceWith('<%= j render_field(@event, @field).html_safe %>');
+$("#field<%= @element_id %>").replaceWith('<%= j render_field(@event, @field) %>');
 var li = $("#field<%= @field.id %>");
 var old_bg = li.css("background-color")
 li.animate({ backgroundColor: "#DFF0D8" }, "slow", function(){
 	$(this).animate( { backgroundColor: old_bg}, "slow");
 });
+updateOrder();

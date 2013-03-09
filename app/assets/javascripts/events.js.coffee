@@ -169,7 +169,7 @@ saveFail = (html,data) ->
     $(this).animate { backgroundColor: old_bg}, "slow"
 
 # Updates the field order in html and db
-updateOrder = ->
+@updateOrder = ->
   fields = $("#fields")
   event_id = fields.find("#field_event_id").attr("value");
   data = {}

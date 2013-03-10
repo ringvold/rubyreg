@@ -1,11 +1,10 @@
 <h1>Brukere</h1>
 <table class="table table-striped" >
-  <tr>
+  <thead>
     <th><%= User.human_attribute_name "name" %>
     <th><%= User.human_attribute_name "email" %>
     <th>
-
-  </tr>
+  </thead>
 
 <% @users.each do |user| %>
   <tr>

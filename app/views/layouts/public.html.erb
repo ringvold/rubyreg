@@ -8,20 +8,27 @@
   <![endif]-->
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/redmond/jquery-ui.css">
   <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body id="public">
 
-<div id="container" class="container">
-  <header>
-	 <h1><a href="/">RubyReg</a></h1> 
-  </header>
+<div id="public-wrapper" class="png_bg">
+  <div id="public-header">
+    <a class="login-link" href="/login">Login</a>
+    <h1><a href="/">RubyReg</a></h1>
+    <!-- Logo (221px width) -->
+    <!--  <a href="/index"><img id="logo" src="/resources/images/logo.png" alt="Simpla Admin logo" /></a>-->
+  </div> <!-- End #public-top -->
+
+  <div id="public-content">
+
 	<%= render "layouts/alerts", locals: {notice => notice, alert => alert} %>
 
 	<%= yield %>
 
+  </div> <!-- End #public-content -->
 
-</div><!-- /container -->
+</div> <!-- End #public-wrapper -->
+<%= javascript_include_tag "application" %>
 </body>
 </html>

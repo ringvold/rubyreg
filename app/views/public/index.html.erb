@@ -1,10 +1,11 @@
-<h2><%= t ".open-events", default: "Open registrations" %></h2>
-<ul>
+<!-- <h2><%#= t ".open-events", default: "Open registrations" %></h2> -->
+<ul id="public-list">
 	<% @events.each do |event| %>
-		<li>
+		<li id="form-list">
 			<h3>
 				<a href="<%= reply_event_path(event) %>"><%= event.title %></a>
-			</h3>
+      </h3>
+      <p><%= event.description.html_safe %></p>
 		</li>
 	<% end %>
 </ul>

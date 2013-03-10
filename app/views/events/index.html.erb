@@ -2,13 +2,13 @@
 
 
 <table class="table table-striped" >
-  <tr>
+  <thead>
     <th><%= Event.human_attribute_name("title") %>
     <th><%= Event.human_attribute_name("description") %>
     <th><%= Event.human_attribute_name("max_att") %>
     <th><%= t :enrollment_window %>
     <th><%= t :actions %>
-  </tr>
+  </thead>
 
 <% @events.each do |event| %>
   <tr>

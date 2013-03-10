@@ -1,3 +1,219 @@
 // Place all the styles related to the public controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#public a
+{
+	color:#57a000;
+	text-decoration:none
+}
+
+#public ol,ul
+{
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+
+body#public
+{
+	color:#CCC;
+	background:#222 url(/assets/bg-login.gif);
+	font-size:1em;
+	text-align:center
+}
+
+#public-wrapper
+{
+	width:800px;
+	margin:0 auto;
+	text-align:left
+}
+
+#public-header
+{
+	background:url(/assets/bg-public-top.png) repeat;
+	height:102px;
+	padding:0
+}
+
+#public-header h1
+{
+	font-size:2em;
+	margin:0 0 0 1em;
+	padding-top:30px
+}
+
+#public-content
+{
+	padding:2em;
+	background:url(/assets/bg-shade.png) repeat
+}
+
+#public-view-wrap
+{
+	background:url(/assets/bg-shade.png) repeat;
+	padding:2em
+}
+
+#public-content .error
+{
+	color:#FFF;
+	margin:10px 0
+}
+
+// #public-wrapper #public-content label
+// {
+// 	color:#ccc;
+// 	font-weight:700;
+// 	font-size:14px;
+// 	font-family:Helvetica,Arial,sans-serif;
+// 	width:70px;
+// 	padding:5px 0 0;
+// 	margin:20px 0 0;
+// 	display:block
+// }
+
+// #public-wrapper #public-content input
+// {
+// 	width:200px;
+// 	margin:10px 0 0;
+// 	border:0;
+// 	background:#ccc
+// }
+
+#public-wrapper .form-actions {
+	border:none;
+	background: none;
+}
+
+#public-wrapper #public-content .button
+{
+	width:auto;
+	margin-top:20px
+}
+
+#public a:hover
+{
+	color:#CCC
+}
+
+#main-content #fields li
+{
+	background:none;
+	padding:0
+}
+
+#public .login-link
+{
+	float:right;
+	color:#000;
+	padding:5px
+}
+
+#form-list
+{
+	background:url(/assets/transparent-bg.png) top left repeat;
+	height:100%;
+	padding:1em;
+	margin-bottom:1em
+}
+
+#public h1,#public h2,#public h3,#public h4,#public h5,#public h6
+{
+	color:#57A000
+}
+
+#public-list li
+{
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px
+}
+
+#public-content
+{
+	-moz-border-radius-bottomleft:20px;
+	-moz-border-radius-bottomright:20px;
+	-webkit-border-bottom-left-radius:20px;
+	-webkit-border-bottom-right-radius:20px;
+	border-bottom-left-radius:20px;
+	border-bottom-right-radius:20px
+}
+
+
+/********************************      Login Page      ********************************/
+// body#login
+// {
+// 	color:#fff;
+// 	background:#222 url(/assets/bg-login.gif)
+// }
+// #login-wrapper
+// {
+// 	background:url(/assets/bg-login-top.png) top left repeat-x
+// }
+
+// #login-wrapper #login-top
+// {
+// 	width:100%;
+// 	padding:140px 0 50px;
+// 	text-align:center
+// }
+
+// #login-wrapper #login-content
+// {
+// 	text-align:left;
+// 	width:300px;
+// 	margin:0 auto
+// }
+
+// #login-wrapper #login-content label
+// {
+// 	color:#fff;
+// 	font-weight:400;
+// 	font-size:14px;
+// 	font-family:Helvetica,Arial,sans-serif;
+// 	float:left;
+// 	width:70px;
+// 	padding:0
+// }
+
+// #login-wrapper #login-content input
+// {
+// 	width:200px;
+// 	float:right;
+// 	margin:0 0 20px;
+// 	border:0;
+// 	background:#fff
+// }
+
+// #login-wrapper #login-content p
+// {
+// 	padding:0
+// }
+
+// #login-wrapper #login-content p#remember-password
+// {
+// 	float:right
+// }
+
+// #login-wrapper #login-content p#remember-password input
+// {
+// 	float:none;
+// 	width:auto;
+// 	border:0;
+// 	background:none;
+// 	margin:0 10px 0 0
+// }
+
+// #login-wrapper #login-content p .button
+// {
+// 	width:auto;
+// 	margin-top:20px
+// }
+
+// #login-wrapper #login-content .notification
+// {
+// 	border:0;
+// 	background-color:#141414;
+// 	color:#fff!important
+// }

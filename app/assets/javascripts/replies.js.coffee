@@ -11,10 +11,12 @@ jQuery ->
 
 	$("#select_all").click ->
 		$("table tr").toggleClass("info")
+		$("table tr").toggleClass("checked")
 		$("table [name='reply_ids[]']").attr "checked", $(this).is(":checked")
 
 	$("#replies tbody tr").click ->
 		$(this).toggleClass("info")
+		$(this).toggleClass("checked")
 		$(this).find("[name='reply_ids[]']").toggleAttr "checked"
 
 	# $("#delete_selected").click ->

@@ -3,13 +3,13 @@
   <p><%= t(".no_replies") %></p>
 <% else %>
   <%= form_tag "/admin/replies/delete" do %>
-  <table class="table table-striped">
+  <table id="replies" class="table table-striped">
     <thead>
       <th class="action-checkbox"><%= check_box_tag "select_all", "", false, :id => "select_all"  %></th>
       <% @event.fields_by_order.each do |f| %>
         <th><%= f.field_label %></th>
       <% end -%>
-      <th>Handlinger</th>
+      <th data-sorter="false" >Handlinger</th>
     </thead>
     <tbody>
 

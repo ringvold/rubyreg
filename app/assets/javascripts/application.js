@@ -7,6 +7,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require_tree .
 //= require jquery-ui
 //= require jquery.wysiwyg
+//= require jquery.tablesorter
+//= require toggle_attr.js
+//= require_tree .

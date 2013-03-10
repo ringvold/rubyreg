@@ -21,8 +21,8 @@
   margin-bottom: 40px;
 }
 
-.fields-container li { 
-	list-style:none; 
+.fields-container li {
+	list-style:none;
 	padding: 10px 0;
 }
 
@@ -36,7 +36,7 @@
   background-color: #f9f9f9;
 }
 
-#fields li:nth-child(odd).ui-state-highlight , 
+#fields li:nth-child(odd).ui-state-highlight ,
 #fields li:nth-child(even).ui-state-highlight  {
   background-color: #f5f5f5;
 }
@@ -54,11 +54,15 @@
 
 #fields .ui-state-highlight {
   background-image: none;
-  list-style: none; 
+  list-style: none;
   height: 40px;
 }
 
 #fields .ui-sortable-helper  { list-style: none; }
+// .tablesorter-default .header, .tablesorter-default .tablesorter-header
+.tablesorter-header.sorter-false  {
+	cursor: text;
+}
 
 form textarea,
 form .wysiwyg {
@@ -66,6 +70,50 @@ form .wysiwyg {
   font-size: 13px;
   background: #fff url('../assets/bg-form-field.gif') top left repeat-x;
   border: 1px solid #d5d5d5;
+}
+
+.embedcode {
+  font: 14px Monaco, Menlo, Consolas, "Courier New", monospace;
+  position: relative;
+  margin: 15px 0;
+  padding: 39px 19px 14px;
+  // background-color: #fff;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.embedjs::after {
+  content: "Javascript";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #9da0a4;
+  -webkit-border-radius: 4px 0 4px 0;
+  -moz-border-radius: 4px 0 4px 0;
+  border-radius: 4px 0 4px 0;
+}
+
+.embedhtml::after {
+  content: "HTML";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #9da0a4;
+  -webkit-border-radius: 4px 0 4px 0;
+  -moz-border-radius: 4px 0 4px 0;
+  border-radius: 4px 0 4px 0;
 }
 
 div.wysiwyg ul.panel { padding: 6px 0 9px 0;}

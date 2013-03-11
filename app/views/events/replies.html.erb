@@ -26,7 +26,7 @@
     <% end %>
     </tbody>
   </table>
-  <button class="btn"><%= t(".delete_chosen") %></button>
+  <%= submit_tag t(".delete_chosen"), :confirm => t(:delete_confirm), class: "btn btn-danger" %>
 
   </form>
   <% end -%>

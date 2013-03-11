@@ -1,8 +1,8 @@
 class PublicController < ApplicationController
-	
+
 	def index
-		@events = Event.all
+		@events = Event.active
 		@reply = Reply.new
 	end
-	
+
 end

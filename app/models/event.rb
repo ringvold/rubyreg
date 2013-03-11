@@ -7,12 +7,12 @@ class Event < ActiveRecord::Base
   validates :title, :start_date, :end_date, :max_att, :presence => true
   validates :max_att, :numericality => true
 
-  scope :active, 	where(:active => true)
-  scope :active_and_active_by_date, lambda {
-    				active.where("start_date < ?", Date.today)
+  # scope :active, 	where(:active => true)
+  scope :active, lambda {
+    				where("start_date < ?", Date.today)
     				.where("end_date > ?", Date.today)}
   scope :last, limit(5)
-  
+
 #  def to_slug
 #    title.downcase.gsub(' ', '-')
 #  end
@@ -42,7 +42,7 @@ class Event < ActiveRecord::Base
     end
     form_maker.new(params)
   end
-  
+
   def slug_and_label
     slug_label = {}
     fields.map {|f| slug_label[f.id.to_s] = f.field_label}

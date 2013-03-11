@@ -29,7 +29,8 @@ nb:
   events:
     edit:
       no_fields: "Det er ikke laget noen felt enda."
-
+    replies:
+      delete_chosen: "Slett valgte"
   views:
       pagination:
         previous: "«"

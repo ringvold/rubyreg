@@ -13,7 +13,7 @@
 <% @events.each do |event| %>
   <tr>
     <td><%= link_to event.title, edit_event_path(event) %>
-    <td><%= event.description %>
+    <td><%= event.description.html_safe %>
     <td><%= event.max_att %>
     <td><%= event.start_date.strftime("%d. %b %Y") %> - <%= event.end_date.strftime("%d. %b %Y") %>
     <td>

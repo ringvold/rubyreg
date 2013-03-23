@@ -8,10 +8,8 @@ class Event < ActiveRecord::Base
   validates :max_att, :numericality => true
 
   # scope :active, 	where(:active => true)
-  scope :active, lambda {
-    				where("start_date < ?", Date.today)
-    				.where("end_date > ?", Date.today)}
-  scope :last, limit(5)
+  scope :active, where("start_date < ?", Date.today)
+    						 .where("end_date > ?", Date.today)
 
 #  def to_slug
 #    title.downcase.gsub(' ', '-')

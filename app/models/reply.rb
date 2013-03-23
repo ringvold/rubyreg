@@ -6,8 +6,6 @@ class Reply < ActiveRecord::Base
   attr_accessible :field_replies_attributes, :event_id
   validates :event, :presence => true
 
-  scope :last, limit(5)
-
   def create_field_replies(reply, field_ids)
     transaction do
       save

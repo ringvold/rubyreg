@@ -2,8 +2,8 @@
   :html => { :class => 'form-horizontal' },
   :validate => true do |f| %>
     <%= f.input :title %>
-    <%= f.input :start_date, :as => :string %>
-    <%= f.input :end_date, :as => :string %>
+    <%= f.input :start_date, :as => :string, :input_html => { :value => (@event.start_date.strftime("%d.%m.%Y") if @event.start_date) } %>
+    <%= f.input :end_date, :as => :string, :input_html => { :value => (@event.end_date.strftime("%d.%m.%Y") if @event.end_date) } %>
     <%= f.input :max_att %>
     <%= f.input :description, :as => :text,  :input_html => { :class => 'wysiwyg',:rows => 10 } %>
     <%= f.input :confirmation_message, :as => :text,  :input_html => { :class => 'wysiwyg',:rows => 10 } %>

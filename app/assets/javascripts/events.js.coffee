@@ -21,12 +21,12 @@ jQuery ->
 
   # Adding datepicker for event dates
   $('#event_start_date').datepicker
-    dateFormat: "dd-mm-yy"
+    dateFormat: "dd.mm.yy"
     showOtherMonths: true,
     selectOtherMonths: true
 
   $('#event_end_date').datepicker
-    dateFormat: "dd-mm-yy"
+    dateFormat: "dd.mm.yy"
     showOtherMonths: true,
     selectOtherMonths: true
 

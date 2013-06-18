@@ -3,7 +3,7 @@ RubyReg
 
 Simple event registration/poll system written i Rails.
 
-Have an event, trip, gathering, meetup or similar that people needs to register for and you dont want to use a hosted service and rather host it yourself with ruby?
+Have an events, trips, gatherings, meetups or similar that people needs to register for and you dont want to use a hosted service and rather host it yourself with ruby?  
 Then RubyReg is for you! ;)
 
 Note: For the moment it is limited to text fields, textarea and single checkboxes per field so the poll part is not completely there yet (yeah, needs some work). If you do a custom implementation of the form you still can use the system to store the value of radiobuttons or checkboxes but it cannot create or render those fields. You need to use a normal text field when you create it for now.
@@ -26,11 +26,11 @@ This list has no spesific prioritization so what ever is requested will probably
 ### Could do
 
 - Multiple accounts (an accout has many user and events/registrations and is seperate form other accounts users and registratons)
-- Graph representation of resitrants? (more releventa for a poll functionality)
+- Graph representation of registrants? (more relevant for a poll functionality)
 - ...any other ideas? Put it in the issues. :)
 
 Some other things like defining a more consistend terminology (should it use event or registration, registrant og replyer?) also needs to be done.
-The code also probably needs some cleanup. :p
+The code also probably needs some cleanup.
 
 ## License
 

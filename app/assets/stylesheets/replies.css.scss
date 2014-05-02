@@ -1,7 +1,11 @@
 // Place all the styles related to the replies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body .action-checkbox {	
-	width: 35px;
-	text-align: center;
+body .action-checkbox {
+  width: 35px;
+  text-align: center;
+}
+
+.reply_description {
+  margin-bottom: 3em;
 }

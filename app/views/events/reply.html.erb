@@ -1,5 +1,7 @@
 <h2><%= @event.title %></h2>
-  <%#= Array @form %>
+<div class="reply_description">
+  <%= @event.description.html_safe %>
+</div>
 <%= simple_form_for @form, :html => { :class => 'form-horizontal' } do |f|%>
   <%= hidden_field_tag "event_id", @event.id %>
   <% @form.attributes.each do |key, value| %>
